@@ -153,8 +153,8 @@ open class Geocoder: NSObject {
 
         var baseURLComponents = URLComponents()
         baseURLComponents.scheme = "https"
-        baseURLComponents.host = host ?? "api.viettelmap.vn"
-        baseURLComponents.port = 8080
+        baseURLComponents.host = host ?? "api.viettelmaps.vn"
+        //baseURLComponents.port = 8080
         self.apiEndpoint = baseURLComponents.url!
     }
 
@@ -166,7 +166,7 @@ open class Geocoder: NSObject {
      - parameter accessToken: A Mapbox [access token](https://www.mapbox.com/help/define-access-token/). If an access token is not specified when initializing the geocoder object, it should be specified in the `MGLMapboxAccessToken` key in the main application bundle’s Info.plist.
      */
     @objc public convenience init(accessToken: String?) {
-        self.init(accessToken: accessToken, host: "api.viettelmaps.com.vn")
+        self.init(accessToken: accessToken, host: "api.viettelmaps.vn")
     }
     
     // MARK: Geocoding a Location
@@ -414,8 +414,8 @@ open class Geocoder: NSObject {
     }
     
     fileprivate func historiesDataTask(uid: String, token: String, method: String, completionHandler: @escaping (_ histories: History?) -> Void, errorHandler: @escaping (_ error: NSError) -> Void) -> URLSessionDataTask {
-        var request = URLRequest(url: URL(string: "https://api.viettelmaps.com.vn:8080/gateway/searching/v1/histories")!)
-		//var request = URLRequest(url: URL(string: "http://10.60.156.16:8764/gateway/searching/v1/histories")!)
+        //var request = URLRequest(url: URL(string: "https://api.viettelmaps.com.vn:8080/gateway/searching/v1/histories")!)
+		var request = URLRequest(url: URL(string: "http://api.viettelmaps.vn/gateway/searching/v1/histories")!)
 
         request.httpMethod = method
         request.setValue("Bearer \(token)", forHTTPHeaderField:"Authorization")
