@@ -7,7 +7,7 @@ public let MBGeocoderErrorDomain = "MBGeocoderErrorDomain"
 
 /// The Mapbox access token specified in the main application bundle’s Info.plist.
 let defaultAccessToken = Bundle.main.infoDictionary?["VTMapAccessToken"] as? String
-
+let bundleIdentifier = Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String
 /// The user agent string for any HTTP requests performed directly within this library.
 let userAgent: String = {
     var components: [String] = []
@@ -351,7 +351,8 @@ open class Geocoder: NSObject {
      */
     @objc open func urlForGeocoding(_ options: GeocodeOptions) -> URL {
         let params = options.params + [
-//            URLQueryItem(name: "access_token", value: accessToken),
+            URLQueryItem(name: "access_token", value: accessToken),
+            URLQueryItem(name: "bundle_id", value: bundleIdentifier),
         ]
 
         assert(!options.queries.isEmpty, "No query")
