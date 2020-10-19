@@ -4,7 +4,7 @@ typealias JSONDictionary = [String: Any]
 
 /// Indicates that an error occurred in MapboxGeocoder.
 public let MBGeocoderErrorDomain = "MBGeocoderErrorDomain"
-
+//public var debugMode: Bool = false
 /// The Mapbox access token specified in the main application bundle’s Info.plist.
 let defaultAccessToken = Bundle.main.infoDictionary?["VTMapAccessToken"] as? String
 let bundleIdentifier = Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String
@@ -103,6 +103,7 @@ extension CLLocation {
  */
 @objc(MBGeocoder)
 open class Geocoder: NSObject {
+    
     /**
      A closure (block) to be called when a geocoding request is complete.
 
@@ -114,6 +115,10 @@ open class Geocoder: NSObject {
      */
     public typealias CompletionHandler = (_ placemarks: [ViettelPlacemark]?, _ attribution: String?, _ error: NSError?) -> Void
 
+    public typealias CompletionHandlerJsonResult = ( _ rawJsonString: String?, _ error: NSError?) -> Void
+    
+    public typealias CompletionHandlerAdminByPoint = ( _ result: AdminPointResult?, _ error: NSError?) -> Void
+    
     /**
      A closure (block) to be called when a geocoding request is complete.
 
@@ -135,7 +140,24 @@ open class Geocoder: NSObject {
 
     /// The API endpoint to request the geocodes from.
     internal var apiEndpoint: URL
-
+    
+    public var debugMode: Bool = false {
+      didSet {
+        var baseURLComponents = URLComponents()
+        baseURLComponents.scheme = "https"
+        
+        if(debugMode){
+            baseURLComponents.host = "api.viettelmaps.com.vn"
+            baseURLComponents.port = 8080
+        }else{
+            baseURLComponents.host = "api.viettelmaps.vn"
+        }
+        self.apiEndpoint = baseURLComponents.url!
+      }
+    }
+    
+//    public var debugMode: Bool = false
+    
     /// The Mapbox access token to associate the request with.
     internal let accessToken: String
 
@@ -150,12 +172,17 @@ open class Geocoder: NSObject {
         assert(accessToken != nil && !accessToken!.isEmpty, "A Mapbox access token is required. Go to <https://www.mapbox.com/studio/account/tokens/>. In Info.plist, set the MGLMapboxAccessToken key to your access token, or use the Geocoder(accessToken:host:) initializer.")
 
         self.accessToken = accessToken!
-
         var baseURLComponents = URLComponents()
         baseURLComponents.scheme = "https"
-        baseURLComponents.host = host ?? "api.viettelmaps.vn"
-        //baseURLComponents.port = 8080
+        
+        if(debugMode){
+            baseURLComponents.host = host ?? "api.viettelmaps.com.vn"
+            baseURLComponents.port = 8080
+        }else{
+            baseURLComponents.host = host ?? "api.viettelmaps.vn"
+        }
         self.apiEndpoint = baseURLComponents.url!
+        
     }
 
     /**
@@ -166,7 +193,7 @@ open class Geocoder: NSObject {
      - parameter accessToken: A Mapbox [access token](https://www.mapbox.com/help/define-access-token/). If an access token is not specified when initializing the geocoder object, it should be specified in the `MGLMapboxAccessToken` key in the main application bundle’s Info.plist.
      */
     @objc public convenience init(accessToken: String?) {
-        self.init(accessToken: accessToken, host: "api.viettelmaps.vn")
+        self.init(accessToken: accessToken, host: nil)
     }
     
     // MARK: Geocoding a Location
@@ -335,7 +362,7 @@ open class Geocoder: NSObject {
             }
         }
     }
-
+    
     internal struct GeocodeAPIResult: Codable {
         let message: String?
     }
@@ -368,6 +395,553 @@ open class Geocoder: NSObject {
         components.queryItems = params
         return components.url!
     }
+    
+    //MARK: - UPDATE API: GET REQUEST
+    /**
+     Returns a URL session task for the given URL that will run the given blocks on completion or error.
+
+     - parameter url: The URL to request.
+     - parameter completionHandler: The closure to call with the parsed JSON response dictionary.
+     - parameter errorHandler: The closure to call when there is an error.
+     - returns: The data task for the URL.
+     - postcondition: The caller must resume the returned task.
+     */
+    fileprivate func dataTaskWithGETURL(_ url: URL, completionHandler: @escaping (_ data: Data?) -> Void, errorHandler: @escaping (_ error: NSError) -> Void) -> URLSessionDataTask {
+        print("dataTaskWithGETURL : " + url.absoluteString)
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+
+        return URLSession.shared.dataTask(with: request) { (data, response, error) in
+            var statusCode = 0
+            if let httpResponse = response as? HTTPURLResponse {
+                statusCode = httpResponse.statusCode
+            }
+            
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    if let e = error as NSError? {
+                        errorHandler(e)
+                    } else {
+                        let unexpectedError = NSError(domain: MBGeocoderErrorDomain, code: -1024, userInfo: [NSLocalizedDescriptionKey : "unexpected error", NSDebugDescriptionErrorKey : "this error happens when data task return nil data and nil error, which typically is not possible"])
+                        errorHandler(unexpectedError)
+                    }
+                }
+                return
+            }
+            
+            guard error == nil else {
+                print("Error: error calling GET")
+                print(error!)
+                let unexpectedError = NSError(domain: MBGeocoderErrorDomain, code: statusCode, userInfo: [NSLocalizedDescriptionKey : "unexpected error", NSDebugDescriptionErrorKey : "Error: error calling GET"])
+                DispatchQueue.main.async {
+                    errorHandler(unexpectedError)
+                }
+                return
+            }
+            guard let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode else {
+                print("Error: HTTP request failed")
+                let unexpectedError = NSError(domain: MBGeocoderErrorDomain, code: statusCode, userInfo: [NSLocalizedDescriptionKey : "unexpected error", NSDebugDescriptionErrorKey : "Error: HTTP request failed"])
+                DispatchQueue.main.async {
+                    errorHandler(unexpectedError)
+                }
+                return
+            }
+            do {
+                guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+                    print("Error: Cannot convert data to JSON object")
+                    let unexpectedError = NSError(domain: MBGeocoderErrorDomain, code: statusCode, userInfo: [NSLocalizedDescriptionKey : "unexpected error", NSDebugDescriptionErrorKey : "Error: Cannot convert data to JSON object"])
+                    DispatchQueue.main.async {
+                        errorHandler(unexpectedError)
+                    }
+                    return
+                }
+                guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
+                    print("Error: Cannot convert JSON object to Pretty JSON data")
+                    let unexpectedError = NSError(domain: MBGeocoderErrorDomain, code: statusCode, userInfo: [NSLocalizedDescriptionKey : "unexpected error", NSDebugDescriptionErrorKey : "Error: Cannot convert JSON object to Pretty JSON data"])
+                    DispatchQueue.main.async {
+                        errorHandler(unexpectedError)
+                    }
+                    return
+                }
+                guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
+                    print("Error: Could print JSON in String")
+                    let unexpectedError = NSError(domain: MBGeocoderErrorDomain, code: statusCode, userInfo: [NSLocalizedDescriptionKey : "unexpected error", NSDebugDescriptionErrorKey : "Error: Could print JSON in String"])
+                    DispatchQueue.main.async {
+                        errorHandler(unexpectedError)
+                    }
+                    return
+                }
+                print(prettyPrintedJson)
+                DispatchQueue.main.async {
+                    completionHandler(data)
+                }
+            } catch {
+                print("Error: Trying to convert JSON data to string")
+                let unexpectedError = NSError(domain: MBGeocoderErrorDomain, code: statusCode, userInfo: [NSLocalizedDescriptionKey : "unexpected error", NSDebugDescriptionErrorKey : "Error: Trying to convert JSON data to string"])
+                DispatchQueue.main.async {
+                    errorHandler(unexpectedError)
+                }
+                return
+            }
+            
+        }
+    }
+    
+    //MARK: - UPDATE API: GET URL
+    
+    /**
+      Geoservice - latlng to address
+     
+     - parameter f: getaddr(cố định không thay đổi parram này)
+     - parameter pt: LatLng(kiểu String ví dụ 16.059366,108.208236)
+     - parameter k : accessToken
+     - returns: The HTTP URL used to fetch the data  from the API.
+     */
+    
+    @objc open func urlForGeoserviceLatlngToAddress(_ options: GeocodeOptions, LatLng: String) -> URL {
+            let params = [
+                URLQueryItem(name: "f", value: "getaddr"),
+                URLQueryItem(name: "pt", value: LatLng),
+                URLQueryItem(name: "k", value: accessToken),
+            ]
+            assert(!options.queries.isEmpty, "No query")
+            let _ = options.queries.map {
+                $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
+            }.joined(separator: ";")
+
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/geoprocessing", relativeTo: apiEndpoint)!
+            var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
+            components.queryItems = params
+            return components.url!
+    }
+    
+    
+    /**
+      Geoservice - multi latlng to address
+     
+     - parameter f: getmultiaddr(cố định không thay đổi parram này)
+     - parameter pt: LatLng(kiểu String ví dụ 21.044844,105.852367;21.044844,105.835372)
+     - parameter k : accessToken
+     - returns: The HTTP URL used to fetch the data  from the API.
+     */
+    @objc open func urlForGeoserviceMultiLatlngToAddress(_ options: GeocodeOptions, LatLng: String) -> URL {
+            let params = [
+                URLQueryItem(name: "f", value: "getmultiaddr"),
+                URLQueryItem(name: "pt", value: LatLng),
+                URLQueryItem(name: "k", value: accessToken),
+            ]
+            assert(!options.queries.isEmpty, "No query")
+            let _ = options.queries.map {
+                $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
+            }.joined(separator: ";")
+
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/geoprocessing", relativeTo: apiEndpoint)!
+            var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
+            components.queryItems = params
+            return components.url!
+    }
+    
+    /**
+      Geoservice - text to address
+     
+     - parameter t: text search(kiểu String)
+     - parameter off: offset
+     - parameter lm: limit
+     - parameter k : accessToken
+     - returns: The HTTP URL used to fetch the data  from the API.
+     */
+    @objc open func urlForGeoserviceTextToAddress(_ options: GeocodeOptions, textSearch: String, offset: String, limit: String) -> URL {
+            let params = [
+                URLQueryItem(name: "t", value: textSearch),
+                URLQueryItem(name: "off", value: offset),
+                URLQueryItem(name: "lm", value: limit),
+                URLQueryItem(name: "k", value: accessToken),
+            ]
+            assert(!options.queries.isEmpty, "No query")
+            let _ = options.queries.map {
+                $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
+            }.joined(separator: ";")
+
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/placeService/geocoding", relativeTo: apiEndpoint)!
+            var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
+            components.queryItems = params
+            return components.url!
+    }
+    
+    /**
+      Geoservice - search around
+     
+     - parameter f: search(cố định không thay đổi parram này)
+     - parameter pt: LatLng(kiểu String ví dụ 16.059366,108.208236)
+     - parameter t: text search(kiểu String)
+     - parameter r: bán kính mét(kiểu int)
+     - parameter off: offset
+     - parameter lm: limit
+     - parameter k : accessToken
+     - returns: The HTTP URL used to fetch the data  from the API.
+     */
+    @objc open func urlForGeoserviceSearchAround(_ options: GeocodeOptions, LatLng: String, textSearch: String, radius: String, offset: String, limit: String) -> URL {
+            let params = [
+                URLQueryItem(name: "f", value: "search"),
+                URLQueryItem(name: "pt", value: LatLng),
+                URLQueryItem(name: "t", value: textSearch),
+                URLQueryItem(name: "r", value: radius),
+                URLQueryItem(name: "off", value: offset),
+                URLQueryItem(name: "lm", value: limit),
+                URLQueryItem(name: "k", value: accessToken),
+            ]
+            assert(!options.queries.isEmpty, "No query")
+            let _ = options.queries.map {
+                $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
+            }.joined(separator: ";")
+
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/placeService/geoprocessing", relativeTo: apiEndpoint)!
+            var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
+            components.queryItems = params
+            return components.url!
+    }
+    
+    /**
+      Adminservice - by point
+     
+     - parameter f: point(cố định không thay đổi parram này)
+     - parameter pt: LatLng(kiểu String ví dụ 16.059366,108.208236)
+     - parameter rt: 255(cố định không thay đổi param này)
+     - parameter l=1 : trả về Tỉnh thành,  l=2: trả về quận,huyện, l=3: trả về xã,phường
+     - parameter k : accessToken
+     - returns: The HTTP URL used to fetch the data  from the API.
+     */
+    @objc open func urlForAdminserviceByPoint(_ options: GeocodeOptions, LatLng: String, returnType: String, type: String) -> URL {
+            let params = [
+                URLQueryItem(name: "f", value: "point"),
+                URLQueryItem(name: "pt", value: LatLng),
+                URLQueryItem(name: "rt", value: returnType),
+                URLQueryItem(name: "l", value: type),
+                URLQueryItem(name: "k", value: accessToken),
+            ]
+            assert(!options.queries.isEmpty, "No query")
+            let _ = options.queries.map {
+                $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
+            }.joined(separator: ";")
+
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/administrationService", relativeTo: apiEndpoint)!
+            var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
+            components.queryItems = params
+            return components.url!
+    }
+    
+    /**
+      Adminservice - by code
+     
+     - parameter f: code(cố định không thay đổi parram này)
+     - parameter code: mã hành chính (ví dụ 79)
+     - parameter rt: 255(cố định không thay đổi parram này)
+     - parameter l=1 : trả về Tỉnh thành, l=2: trả về quận,huyện, l=3: trả về xã,phường
+     - parameter k : accessToken
+     - returns: The HTTP URL used to fetch the data  from the API.
+     */
+    @objc open func urlForAdminserviceByCode(_ options: GeocodeOptions, code: String, returnType: String, type: String) -> URL {
+            let params = [
+                URLQueryItem(name: "f", value: "code"),
+                URLQueryItem(name: "code", value: code),
+                URLQueryItem(name: "rt", value: returnType),
+                URLQueryItem(name: "l", value: type),
+                URLQueryItem(name: "k", value: accessToken),
+            ]
+            assert(!options.queries.isEmpty, "No query")
+            let _ = options.queries.map {
+                $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
+            }.joined(separator: ";")
+
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/administrationService", relativeTo: apiEndpoint)!
+            var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
+            components.queryItems = params
+            return components.url!
+    }
+    
+    /**
+      Adminservice - by circle
+    - parameter
+    - returns: The HTTP URL used to fetch the data  from the API.
+     */
+    @objc open func urlForAdminserviceByCircle(_ options: GeocodeOptions, LatLng: String, radius: String, returnType: String, type: String) -> URL {
+            let params = [
+                URLQueryItem(name: "f", value: "circle"),
+                URLQueryItem(name: "pt", value: LatLng),
+                URLQueryItem(name: "r", value: radius),
+                URLQueryItem(name: "rt", value: "3"),
+                URLQueryItem(name: "l", value: type),
+                URLQueryItem(name: "k", value: accessToken),
+            ]
+            assert(!options.queries.isEmpty, "No query")
+            let _ = options.queries.map {
+                $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
+            }.joined(separator: ";")
+
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/administrationService", relativeTo: apiEndpoint)!
+            var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
+            components.queryItems = params
+            return components.url!
+    }
+    
+    /**
+      Adminservice - by boundary
+     - parameter
+     - returns: The HTTP URL used to fetch the data  from the API.
+     */
+    @objc open func urlForAdminserviceByBoundary(_ options: GeocodeOptions, LatLng: String, returnType: String, type: String) -> URL {
+            let params = [
+                URLQueryItem(name: "f", value: "view"),
+                URLQueryItem(name: "rt", value: returnType),
+                URLQueryItem(name: "l", value: type),
+                URLQueryItem(name: "b", value: LatLng),
+                URLQueryItem(name: "k", value: accessToken),
+            ]
+            assert(!options.queries.isEmpty, "No query")
+            let _ = options.queries.map {
+                $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
+            }.joined(separator: ";")
+
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/administrationService", relativeTo: apiEndpoint)!
+            var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
+            components.queryItems = params
+            return components.url!
+    }
+    
+    //MARK: - UPDATE API: METHOD
+    
+    @discardableResult
+    @objc(geoserviceLatlngToAddressWithOptions:LatLng:completionHandler:)
+    open func geoserviceLatlngToAddress(_ options: GeocodeOptions, LatLng: String? = "", completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
+        let url = urlForGeoserviceLatlngToAddress(options, LatLng: LatLng!)
+
+        let task = dataTaskWithGETURL(url, completionHandler: { (data) in
+            guard let data = data else { return }
+            do {
+                var resultJsonString = ""
+                if let (arrayJsonString) = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    print(arrayJsonString)
+                    let dataJsonString =  try JSONSerialization.data(withJSONObject:arrayJsonString, options: .prettyPrinted)
+                    print(dataJsonString)
+                    let rawJsonString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+                    print(rawJsonString)
+                    resultJsonString = rawJsonString
+                }
+                completionHandler(resultJsonString, nil)
+            } catch {
+                completionHandler("", error as NSError)
+            }
+        }) { (error) in
+            completionHandler("", error)
+        }
+        task.resume()
+        return task
+    }
+    
+    @discardableResult
+    @objc(geoserviceMultiLatlngToAddressWithOptions:LatLng:completionHandler:)
+    open func geoserviceMultiLatlngToAddress(_ options: GeocodeOptions, LatLng: String? = "", completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
+        let url = urlForGeoserviceLatlngToAddress(options, LatLng: LatLng!)
+
+        let task = dataTaskWithGETURL(url, completionHandler: { (data) in
+            guard let data = data else { return }
+            do {
+                var resultJsonString = ""
+                if let (arrayJsonString) = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    print(arrayJsonString)
+                    let dataJsonString =  try JSONSerialization.data(withJSONObject:arrayJsonString, options: .prettyPrinted)
+                    print(dataJsonString)
+                    let rawJsonString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+                    print(rawJsonString)
+                    resultJsonString = rawJsonString
+                }
+                completionHandler(resultJsonString, nil)
+            } catch {
+                completionHandler("", error as NSError)
+            }
+        }) { (error) in
+            completionHandler("", error)
+        }
+        task.resume()
+        return task
+    }
+    
+    @discardableResult
+    @objc(geoserviceTextToAddressWithOptions:textSearch:offset:limit:completionHandler:)
+    open func geoserviceTextToAddress(_ options: GeocodeOptions, textSearch: String? = "", offset: String? = "", limit: String? = "", completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
+        let url = urlForGeoserviceTextToAddress(options, textSearch: textSearch!, offset: offset!, limit: limit!)
+
+        let task = dataTaskWithGETURL(url, completionHandler: { (data) in
+            guard let data = data else { return }
+            do {
+                var resultJsonString = ""
+                if let (arrayJsonString) = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    print(arrayJsonString)
+                    let dataJsonString =  try JSONSerialization.data(withJSONObject:arrayJsonString, options: .prettyPrinted)
+                    print(dataJsonString)
+                    let rawJsonString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+                    print(rawJsonString)
+                    resultJsonString = rawJsonString
+                }
+                completionHandler(resultJsonString, nil)
+            } catch {
+                completionHandler("", error as NSError)
+            }
+        }) { (error) in
+            completionHandler("", error)
+        }
+        task.resume()
+        return task
+    }
+    
+    @discardableResult
+    @objc(geoserviceSearchAroundWithOptions:LatLng:textSearch:radius:offset:limit:completionHandler:)
+    open func geoserviceSearchAround(_ options: GeocodeOptions, LatLng: String? = "", textSearch: String? = "", radius:String? = "", offset: String? = "", limit: String? = "",completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
+        let url = urlForGeoserviceSearchAround(options, LatLng: LatLng!, textSearch: textSearch!, radius: radius!, offset: offset!, limit: limit!)
+
+        let task = dataTaskWithGETURL(url, completionHandler: { (data) in
+            guard let data = data else { return }
+            do {
+                var resultJsonString = ""
+                if let (arrayJsonString) = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    print(arrayJsonString)
+                    let dataJsonString =  try JSONSerialization.data(withJSONObject:arrayJsonString, options: .prettyPrinted)
+                    print(dataJsonString)
+                    let rawJsonString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+                    print(rawJsonString)
+                    resultJsonString = rawJsonString
+                }
+                completionHandler(resultJsonString, nil)
+            } catch {
+                completionHandler("", error as NSError)
+            }
+        }) { (error) in
+            completionHandler("", error)
+        }
+        task.resume()
+        return task
+    }
+    
+    @discardableResult
+    @objc(adminserviceByPointWithOptions:LatLng:returnType:type:completionHandler:)
+    open func adminserviceByPoint(_ options: GeocodeOptions, LatLng: String? = "", returnType: String? = "", type: String? = "", completionHandler: @escaping CompletionHandlerAdminByPoint) -> URLSessionDataTask {
+        let url = urlForAdminserviceByPoint(options, LatLng: LatLng!, returnType: returnType!, type: type!)
+        let decoder = JSONDecoder()
+        
+        let task = dataTaskWithGETURL(url, completionHandler: { (data) in
+            guard let data = data else { return }
+            do {
+                var resultJsonString = ""
+                if let (arrayJsonString) = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    print(arrayJsonString)
+                    let dataJsonString =  try JSONSerialization.data(withJSONObject:arrayJsonString, options: .prettyPrinted)
+                    print(dataJsonString)
+                    let rawJsonString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+                    print(rawJsonString)
+                    resultJsonString = rawJsonString
+                }
+                let result = try decoder.decode(AdminServiceResult.self, from: data)
+                let adminPointResult = AdminPointResult()
+                adminPointResult.status = result.status
+                adminPointResult.total = result.total
+                adminPointResult.items = result.items
+                
+                completionHandler(adminPointResult, nil)
+            } catch {
+                completionHandler(nil, error as NSError)
+            }
+        }) { (error) in
+            completionHandler(nil, error)
+        }
+        task.resume()
+        return task
+    }
+    
+    @discardableResult
+    @objc(adminserviceByCodeWithOptions:LatLng:returnType:type:completionHandler:)
+    open func adminserviceByCode(_ options: GeocodeOptions, code: String? = "", returnType: String? = "", type: String? = "",completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
+        let url = urlForAdminserviceByCode(options, code: code!, returnType: returnType!, type: type!)
+
+        let task = dataTaskWithGETURL(url, completionHandler: { (data) in
+            guard let data = data else { return }
+            do {
+                var resultJsonString = ""
+                if let (arrayJsonString) = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    print(arrayJsonString)
+                    let dataJsonString =  try JSONSerialization.data(withJSONObject:arrayJsonString, options: .prettyPrinted)
+                    print(dataJsonString)
+                    let rawJsonString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+                    print(rawJsonString)
+                    resultJsonString = rawJsonString
+                }
+                completionHandler(resultJsonString, nil)
+            } catch {
+                completionHandler("", error as NSError)
+            }
+        }) { (error) in
+            completionHandler("", error)
+        }
+        task.resume()
+        return task
+    }
+    
+    @discardableResult
+    @objc(adminserviceByCircleWithOptions:LatLng:radius:returnType:type:completionHandler:)
+    open func adminserviceByCircle(_ options: GeocodeOptions, LatLng: String? = "", radius: String? = "", returnType: String? = "", type: String? = "", completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
+        let url = urlForAdminserviceByCircle(options, LatLng: LatLng!, radius: radius!, returnType: returnType!, type: type!)
+
+        let task = dataTaskWithGETURL(url, completionHandler: { (data) in
+            guard let data = data else { return }
+            do {
+                var resultJsonString = ""
+                if let (arrayJsonString) = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    print(arrayJsonString)
+                    let dataJsonString =  try JSONSerialization.data(withJSONObject:arrayJsonString, options: .prettyPrinted)
+                    print(dataJsonString)
+                    let rawJsonString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+                    print(rawJsonString)
+                    resultJsonString = rawJsonString
+                }
+                completionHandler(resultJsonString, nil)
+            } catch {
+                completionHandler("", error as NSError)
+            }
+        }) { (error) in
+            completionHandler("", error)
+        }
+        task.resume()
+        return task
+    }
+    
+    @discardableResult
+    @objc(adminserviceByBoundaryWithOptions:LatLng:returnType:type:completionHandler:)
+    open func adminserviceByBoundary(_ options: GeocodeOptions, LatLng: String? = "", returnType: String? = "", type: String? = "", completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
+        let url = urlForAdminserviceByBoundary(options, LatLng: LatLng!, returnType: returnType!, type: type!)
+
+        let task = dataTaskWithGETURL(url, completionHandler: { (data) in
+            guard let data = data else { return }
+            do {
+                var resultJsonString = ""
+                if let (arrayJsonString) = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    print(arrayJsonString)
+                    let dataJsonString =  try JSONSerialization.data(withJSONObject:arrayJsonString, options: .prettyPrinted)
+                    print(dataJsonString)
+                    let rawJsonString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+                    print(rawJsonString)
+                    resultJsonString = rawJsonString
+                }
+                completionHandler(resultJsonString, nil)
+            } catch {
+                completionHandler("", error as NSError)
+            }
+        }) { (error) in
+            completionHandler("", error)
+        }
+        task.resume()
+        return task
+    }
+    
+    //MARK: -
 
     /**
      Returns an error that supplements the given underlying error with additional information from the an HTTP response’s body or headers.
