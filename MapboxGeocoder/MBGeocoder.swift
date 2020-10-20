@@ -1,5 +1,6 @@
 import Foundation
 
+
 typealias JSONDictionary = [String: Any]
 
 /// Indicates that an error occurred in MapboxGeocoder.
@@ -118,6 +119,8 @@ open class Geocoder: NSObject {
     public typealias CompletionHandlerJsonResult = ( _ rawJsonString: String?, _ error: NSError?) -> Void
     
     public typealias CompletionHandlerAdminByPoint = ( _ result: AdminPointResult?, _ error: NSError?) -> Void
+    public typealias CompletionHandlerGeoLatLngToAddsResult = ( _ result: GeoLatLngToAddsResult?, _ error: NSError?) -> Void
+    public typealias CompletionHandlerGeoTextToAddsResult = ( _ result: GeoTextToAddsResult?, _ error: NSError?) -> Void
     
     /**
      A closure (block) to be called when a geocoding request is complete.
@@ -712,9 +715,9 @@ open class Geocoder: NSObject {
     
     @discardableResult
     @objc(geoserviceLatlngToAddressWithOptions:LatLng:completionHandler:)
-    open func geoserviceLatlngToAddress(_ options: GeocodeOptions, LatLng: String? = "", completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
+    open func geoserviceLatlngToAddress(_ options: GeocodeOptions, LatLng: String? = "", completionHandler: @escaping CompletionHandlerGeoLatLngToAddsResult) -> URLSessionDataTask {
         let url = urlForGeoserviceLatlngToAddress(options, LatLng: LatLng!)
-
+        let decoder = JSONDecoder()
         let task = dataTaskWithGETURL(url, completionHandler: { (data) in
             guard let data = data else { return }
             do {
@@ -727,12 +730,16 @@ open class Geocoder: NSObject {
                     print(rawJsonString)
                     resultJsonString = rawJsonString
                 }
-                completionHandler(resultJsonString, nil)
+                let result = try decoder.decode(GeoLatLngToAdds.self, from: data)
+                let geoResult = GeoLatLngToAddsResult()
+                geoResult.status = result.status
+                geoResult.data = result.data
+                completionHandler(geoResult, nil)
             } catch {
-                completionHandler("", error as NSError)
+                completionHandler(nil, error as NSError)
             }
         }) { (error) in
-            completionHandler("", error)
+            completionHandler(nil, error)
         }
         task.resume()
         return task
@@ -768,9 +775,9 @@ open class Geocoder: NSObject {
     
     @discardableResult
     @objc(geoserviceTextToAddressWithOptions:textSearch:offset:limit:completionHandler:)
-    open func geoserviceTextToAddress(_ options: GeocodeOptions, textSearch: String? = "", offset: String? = "", limit: String? = "", completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
+    open func geoserviceTextToAddress(_ options: GeocodeOptions, textSearch: String? = "", offset: String? = "", limit: String? = "", completionHandler: @escaping CompletionHandlerGeoTextToAddsResult) -> URLSessionDataTask {
         let url = urlForGeoserviceTextToAddress(options, textSearch: textSearch!, offset: offset!, limit: limit!)
-
+        let decoder = JSONDecoder()
         let task = dataTaskWithGETURL(url, completionHandler: { (data) in
             guard let data = data else { return }
             do {
@@ -783,12 +790,30 @@ open class Geocoder: NSObject {
                     print(rawJsonString)
                     resultJsonString = rawJsonString
                 }
-                completionHandler(resultJsonString, nil)
+                let result = try decoder.decode(GeoTextToAdds.self, from: data)
+                let geoResult = GeoTextToAddsResult()
+                geoResult.status = result.status
+                geoResult.total = result.total
+                geoResult.items = result.items
+                
+                for item in geoResult.items! {
+                    
+                    let listDecodeLatLng : [VMSLatLng] = VMSMapUtils.decodePoints(item.location, withType: Int32(VMSEncryptEarthPoint.rawValue)) as! [VMSLatLng]
+                    if (!listDecodeLatLng.isEmpty){
+                        let latLng = listDecodeLatLng[0]
+                        item.locationLatLng = LatLng(latitude: latLng.latitude, longitude: latLng.longitude)
+                    }else{
+                        item.locationLatLng = LatLng(latitude: 0.0, longitude: 0.0)
+                    }
+                    
+                }
+                
+                completionHandler(geoResult, nil)
             } catch {
-                completionHandler("", error as NSError)
+                completionHandler(nil, error as NSError)
             }
         }) { (error) in
-            completionHandler("", error)
+            completionHandler(nil, error)
         }
         task.resume()
         return task

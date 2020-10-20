@@ -41,6 +41,11 @@ public struct LatLngBounds: Codable {
 public struct LatLng: Codable {
     public var latitude : Double?
     public var longitude : Double?
+    
+    init(latitude : Double? = 0.0, longitude : Double? = 0.0) {
+        self.latitude = latitude
+        self.longitude = longitude
+    }
 }
 
 public struct ServiceStatus{
