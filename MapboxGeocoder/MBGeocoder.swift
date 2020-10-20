@@ -123,6 +123,8 @@ open class Geocoder: NSObject {
     public typealias CompletionHandlerGeoLatLngToMultiAddsResult = ( _ result: GeoLatLngToMultiAddsResult?, _ error: NSError?) -> Void
     public typealias CompletionHandlerGeoTextToAddsResult = ( _ result: GeoTextToAddsResult?, _ error: NSError?) -> Void
     
+    public typealias CompletionHandlerGeoAdminByCircleResult = ( _ result: GeoAdminByCircleResult?, _ error: NSError?) -> Void
+    
     /**
      A closure (block) to be called when a geocoding request is complete.
 
@@ -584,11 +586,12 @@ open class Geocoder: NSObject {
      - parameter k : accessToken
      - returns: The HTTP URL used to fetch the data  from the API.
      */
-    @objc open func urlForGeoserviceSearchAround(_ options: GeocodeOptions, LatLng: String, textSearch: String, radius: String, offset: String, limit: String) -> URL {
+    @objc open func urlForGeoserviceSearchAround(_ options: GeocodeOptions, LatLng: String, textSearch: String, tp: String, radius: String, offset: String, limit: String) -> URL {
             let params = [
                 URLQueryItem(name: "f", value: "search"),
                 URLQueryItem(name: "pt", value: LatLng),
-                URLQueryItem(name: "t", value: textSearch),
+                URLQueryItem(name: "text", value: textSearch),
+                URLQueryItem(name: "t", value: tp),
                 URLQueryItem(name: "r", value: radius),
                 URLQueryItem(name: "off", value: offset),
                 URLQueryItem(name: "lm", value: limit),
@@ -837,10 +840,10 @@ open class Geocoder: NSObject {
     }
     
     @discardableResult
-    @objc(geoserviceSearchAroundWithOptions:LatLng:textSearch:radius:offset:limit:completionHandler:)
-    open func geoserviceSearchAround(_ options: GeocodeOptions, LatLng: String? = "", textSearch: String? = "", radius:String? = "", offset: String? = "", limit: String? = "",completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
-        let url = urlForGeoserviceSearchAround(options, LatLng: LatLng!, textSearch: textSearch!, radius: radius!, offset: offset!, limit: limit!)
-
+    @objc(geoserviceSearchAroundWithOptions:LatLng:textSearch:tp:radius:offset:limit:completionHandler:)
+    open func geoserviceSearchAround(_ options: GeocodeOptions, LatLngString: String? = "", textSearch: String? = "", tp: String? = "0", radius:String? = "", offset: String? = "", limit: String? = "",completionHandler: @escaping CompletionHandlerGeoTextToAddsResult) -> URLSessionDataTask {
+        let url = urlForGeoserviceSearchAround(options, LatLng: LatLngString!, textSearch: textSearch!, tp: tp!, radius: radius!, offset: offset!, limit: limit!)
+        let decoder = JSONDecoder()
         let task = dataTaskWithGETURL(url, completionHandler: { (data) in
             guard let data = data else { return }
             do {
@@ -853,12 +856,31 @@ open class Geocoder: NSObject {
                     print(rawJsonString)
                     resultJsonString = rawJsonString
                 }
-                completionHandler(resultJsonString, nil)
+                let result = try decoder.decode(GeoTextToAdds.self, from: data)
+                let geoResult = GeoTextToAddsResult()
+                geoResult.status = result.status
+                geoResult.total = result.total
+                geoResult.items = result.items
+                
+                if(nil != geoResult.items && !geoResult.items!.isEmpty){
+                    for item in geoResult.items! {
+                        
+                        let listDecodeLatLng : [VTMLatLng] = VTMapUtils.decodePoints(item.location, withType: Int32(VMSEncryptEarthPoint.rawValue)) as! [VTMLatLng]
+                        if (!listDecodeLatLng.isEmpty){
+                            let latLng = listDecodeLatLng[0]
+                            item.locationLatLng = LatLng(latitude: latLng.latitude, longitude: latLng.longitude)
+                        }else{
+                            item.locationLatLng = LatLng(latitude: 0.0, longitude: 0.0)
+                        }
+                    }
+                }
+                completionHandler(geoResult, nil)
+//                completionHandler(resultJsonString, nil)
             } catch {
-                completionHandler("", error as NSError)
+                completionHandler(nil, error as NSError)
             }
         }) { (error) in
-            completionHandler("", error)
+            completionHandler(nil, error)
         }
         task.resume()
         return task
@@ -901,9 +923,9 @@ open class Geocoder: NSObject {
     
     @discardableResult
     @objc(adminserviceByCodeWithOptions:LatLng:returnType:type:completionHandler:)
-    open func adminserviceByCode(_ options: GeocodeOptions, code: String? = "", returnType: String? = "", type: String? = "",completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
+    open func adminserviceByCode(_ options: GeocodeOptions, code: String? = "", returnType: String? = "", type: String? = "",completionHandler: @escaping CompletionHandlerAdminByPoint) -> URLSessionDataTask {
         let url = urlForAdminserviceByCode(options, code: code!, returnType: returnType!, type: type!)
-
+        let decoder = JSONDecoder()
         let task = dataTaskWithGETURL(url, completionHandler: { (data) in
             guard let data = data else { return }
             do {
@@ -916,12 +938,19 @@ open class Geocoder: NSObject {
                     print(rawJsonString)
                     resultJsonString = rawJsonString
                 }
-                completionHandler(resultJsonString, nil)
+//                completionHandler(resultJsonString, nil)
+                let result = try decoder.decode(AdminServiceResult.self, from: data)
+                let adminPointResult = AdminPointResult()
+                adminPointResult.status = result.status
+                adminPointResult.total = result.total
+                adminPointResult.items = result.items
+                
+                completionHandler(adminPointResult, nil)
             } catch {
-                completionHandler("", error as NSError)
+                completionHandler(nil, error as NSError)
             }
         }) { (error) in
-            completionHandler("", error)
+            completionHandler(nil, error)
         }
         task.resume()
         return task
@@ -929,9 +958,9 @@ open class Geocoder: NSObject {
     
     @discardableResult
     @objc(adminserviceByCircleWithOptions:LatLng:radius:returnType:type:completionHandler:)
-    open func adminserviceByCircle(_ options: GeocodeOptions, LatLng: String? = "", radius: String? = "", returnType: String? = "", type: String? = "", completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
+    open func adminserviceByCircle(_ options: GeocodeOptions, LatLng: String? = "", radius: String? = "", returnType: String? = "", type: String? = "", completionHandler: @escaping CompletionHandlerGeoAdminByCircleResult) -> URLSessionDataTask {
         let url = urlForAdminserviceByCircle(options, LatLng: LatLng!, radius: radius!, returnType: returnType!, type: type!)
-
+        let decoder = JSONDecoder()
         let task = dataTaskWithGETURL(url, completionHandler: { (data) in
             guard let data = data else { return }
             do {
@@ -944,12 +973,20 @@ open class Geocoder: NSObject {
                     print(rawJsonString)
                     resultJsonString = rawJsonString
                 }
-                completionHandler(resultJsonString, nil)
+//                completionHandler(resultJsonString, nil)
+                
+                let result = try decoder.decode(GeoAdminByCircle.self, from: data)
+                let geoResult = GeoAdminByCircleResult()
+                geoResult.status = result.status
+                geoResult.total = result.total
+                geoResult.items = result.items
+                completionHandler(geoResult, nil)
+                
             } catch {
-                completionHandler("", error as NSError)
+                completionHandler(nil, error as NSError)
             }
         }) { (error) in
-            completionHandler("", error)
+            completionHandler(nil, error)
         }
         task.resume()
         return task
@@ -957,9 +994,9 @@ open class Geocoder: NSObject {
     
     @discardableResult
     @objc(adminserviceByBoundaryWithOptions:LatLng:returnType:type:completionHandler:)
-    open func adminserviceByBoundary(_ options: GeocodeOptions, LatLng: String? = "", returnType: String? = "", type: String? = "", completionHandler: @escaping CompletionHandlerJsonResult) -> URLSessionDataTask {
+    open func adminserviceByBoundary(_ options: GeocodeOptions, LatLng: String? = "", returnType: String? = "", type: String? = "", completionHandler: @escaping CompletionHandlerGeoAdminByCircleResult) -> URLSessionDataTask {
         let url = urlForAdminserviceByBoundary(options, LatLng: LatLng!, returnType: returnType!, type: type!)
-
+        let decoder = JSONDecoder()
         let task = dataTaskWithGETURL(url, completionHandler: { (data) in
             guard let data = data else { return }
             do {
@@ -972,12 +1009,18 @@ open class Geocoder: NSObject {
                     print(rawJsonString)
                     resultJsonString = rawJsonString
                 }
-                completionHandler(resultJsonString, nil)
+//                completionHandler(resultJsonString, nil)
+                let result = try decoder.decode(GeoAdminByCircle.self, from: data)
+                let geoResult = GeoAdminByCircleResult()
+                geoResult.status = result.status
+                geoResult.total = result.total
+                geoResult.items = result.items
+                completionHandler(geoResult, nil)
             } catch {
-                completionHandler("", error as NSError)
+                completionHandler(nil, error as NSError)
             }
         }) { (error) in
-            completionHandler("", error)
+            completionHandler(nil, error)
         }
         task.resume()
         return task

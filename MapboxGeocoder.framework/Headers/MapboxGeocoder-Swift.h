@@ -290,6 +290,12 @@ SWIFT_CLASS_NAMED("ForwardBatchGeocodeOptions")
 
 
 
+SWIFT_CLASS_NAMED("GeoAdminByCircleResult")
+@interface GeoAdminByCircleResult : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS_NAMED("GeoLatLngToAddsResult")
 @interface GeoLatLngToAddsResult : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -510,7 +516,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MBGeocoder *
 ///
 /// returns:
 /// The HTTP URL used to fetch the data  from the API.
-- (NSURL * _Nonnull)urlForGeoserviceSearchAround:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nonnull)LatLng textSearch:(NSString * _Nonnull)textSearch radius:(NSString * _Nonnull)radius offset:(NSString * _Nonnull)offset limit:(NSString * _Nonnull)limit SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nonnull)urlForGeoserviceSearchAround:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nonnull)LatLng textSearch:(NSString * _Nonnull)textSearch tp:(NSString * _Nonnull)tp radius:(NSString * _Nonnull)radius offset:(NSString * _Nonnull)offset limit:(NSString * _Nonnull)limit SWIFT_WARN_UNUSED_RESULT;
 /// Adminservice - by point
 /// \param f point(cố định không thay đổi parram này)
 ///
@@ -564,11 +570,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MBGeocoder *
 - (NSURLSessionDataTask * _Nonnull)geoserviceLatlngToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng completionHandler:(void (^ _Nonnull)(GeoLatLngToAddsResult * _Nullable, NSError * _Nullable))completionHandler;
 - (NSURLSessionDataTask * _Nonnull)geoserviceMultiLatlngToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLngString completionHandler:(void (^ _Nonnull)(GeoLatLngToMultiAddsResult * _Nullable, NSError * _Nullable))completionHandler;
 - (NSURLSessionDataTask * _Nonnull)geoserviceTextToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options textSearch:(NSString * _Nullable)textSearch offset:(NSString * _Nullable)offset limit:(NSString * _Nullable)limit completionHandler:(void (^ _Nonnull)(GeoTextToAddsResult * _Nullable, NSError * _Nullable))completionHandler;
-- (NSURLSessionDataTask * _Nonnull)geoserviceSearchAroundWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng textSearch:(NSString * _Nullable)textSearch radius:(NSString * _Nullable)radius offset:(NSString * _Nullable)offset limit:(NSString * _Nullable)limit completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
+- (NSURLSessionDataTask * _Nonnull)geoserviceSearchAroundWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLngString textSearch:(NSString * _Nullable)textSearch tp:(NSString * _Nullable)tp radius:(NSString * _Nullable)radius offset:(NSString * _Nullable)offset limit:(NSString * _Nullable)limit completionHandler:(void (^ _Nonnull)(GeoTextToAddsResult * _Nullable, NSError * _Nullable))completionHandler;
 - (NSURLSessionDataTask * _Nonnull)adminserviceByPointWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(AdminPointResult * _Nullable, NSError * _Nullable))completionHandler;
-- (NSURLSessionDataTask * _Nonnull)adminserviceByCodeWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)code returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
-- (NSURLSessionDataTask * _Nonnull)adminserviceByCircleWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng radius:(NSString * _Nullable)radius returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
-- (NSURLSessionDataTask * _Nonnull)adminserviceByBoundaryWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
+- (NSURLSessionDataTask * _Nonnull)adminserviceByCodeWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)code returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(AdminPointResult * _Nullable, NSError * _Nullable))completionHandler;
+- (NSURLSessionDataTask * _Nonnull)adminserviceByCircleWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng radius:(NSString * _Nullable)radius returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(GeoAdminByCircleResult * _Nullable, NSError * _Nullable))completionHandler;
+- (NSURLSessionDataTask * _Nonnull)adminserviceByBoundaryWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(GeoAdminByCircleResult * _Nullable, NSError * _Nullable))completionHandler;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -947,6 +953,12 @@ SWIFT_CLASS_NAMED("ForwardBatchGeocodeOptions")
 
 
 
+SWIFT_CLASS_NAMED("GeoAdminByCircleResult")
+@interface GeoAdminByCircleResult : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS_NAMED("GeoLatLngToAddsResult")
 @interface GeoLatLngToAddsResult : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1167,7 +1179,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MBGeocoder *
 ///
 /// returns:
 /// The HTTP URL used to fetch the data  from the API.
-- (NSURL * _Nonnull)urlForGeoserviceSearchAround:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nonnull)LatLng textSearch:(NSString * _Nonnull)textSearch radius:(NSString * _Nonnull)radius offset:(NSString * _Nonnull)offset limit:(NSString * _Nonnull)limit SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nonnull)urlForGeoserviceSearchAround:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nonnull)LatLng textSearch:(NSString * _Nonnull)textSearch tp:(NSString * _Nonnull)tp radius:(NSString * _Nonnull)radius offset:(NSString * _Nonnull)offset limit:(NSString * _Nonnull)limit SWIFT_WARN_UNUSED_RESULT;
 /// Adminservice - by point
 /// \param f point(cố định không thay đổi parram này)
 ///
@@ -1221,11 +1233,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MBGeocoder *
 - (NSURLSessionDataTask * _Nonnull)geoserviceLatlngToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng completionHandler:(void (^ _Nonnull)(GeoLatLngToAddsResult * _Nullable, NSError * _Nullable))completionHandler;
 - (NSURLSessionDataTask * _Nonnull)geoserviceMultiLatlngToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLngString completionHandler:(void (^ _Nonnull)(GeoLatLngToMultiAddsResult * _Nullable, NSError * _Nullable))completionHandler;
 - (NSURLSessionDataTask * _Nonnull)geoserviceTextToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options textSearch:(NSString * _Nullable)textSearch offset:(NSString * _Nullable)offset limit:(NSString * _Nullable)limit completionHandler:(void (^ _Nonnull)(GeoTextToAddsResult * _Nullable, NSError * _Nullable))completionHandler;
-- (NSURLSessionDataTask * _Nonnull)geoserviceSearchAroundWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng textSearch:(NSString * _Nullable)textSearch radius:(NSString * _Nullable)radius offset:(NSString * _Nullable)offset limit:(NSString * _Nullable)limit completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
+- (NSURLSessionDataTask * _Nonnull)geoserviceSearchAroundWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLngString textSearch:(NSString * _Nullable)textSearch tp:(NSString * _Nullable)tp radius:(NSString * _Nullable)radius offset:(NSString * _Nullable)offset limit:(NSString * _Nullable)limit completionHandler:(void (^ _Nonnull)(GeoTextToAddsResult * _Nullable, NSError * _Nullable))completionHandler;
 - (NSURLSessionDataTask * _Nonnull)adminserviceByPointWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(AdminPointResult * _Nullable, NSError * _Nullable))completionHandler;
-- (NSURLSessionDataTask * _Nonnull)adminserviceByCodeWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)code returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
-- (NSURLSessionDataTask * _Nonnull)adminserviceByCircleWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng radius:(NSString * _Nullable)radius returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
-- (NSURLSessionDataTask * _Nonnull)adminserviceByBoundaryWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
+- (NSURLSessionDataTask * _Nonnull)adminserviceByCodeWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)code returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(AdminPointResult * _Nullable, NSError * _Nullable))completionHandler;
+- (NSURLSessionDataTask * _Nonnull)adminserviceByCircleWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng radius:(NSString * _Nullable)radius returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(GeoAdminByCircleResult * _Nullable, NSError * _Nullable))completionHandler;
+- (NSURLSessionDataTask * _Nonnull)adminserviceByBoundaryWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(GeoAdminByCircleResult * _Nullable, NSError * _Nullable))completionHandler;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

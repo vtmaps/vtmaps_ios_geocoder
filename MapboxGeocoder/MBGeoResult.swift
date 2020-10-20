@@ -4,6 +4,20 @@
 //
 //
 
+@objc(GeoAdminByCircleResult)
+open class GeoAdminByCircleResult: NSObject {
+    public var status : Int?  = ServiceStatus.OK
+    public var total : Int? = 0
+    public var items : [GeoObjCircleItem]?
+    
+}
+
+public struct GeoAdminByCircle: Codable {
+    public var status : Int?  = ServiceStatus.OK
+    public var total : Int? = 0
+    public var items : [GeoObjCircleItem]?
+}
+
 @objc(GeoLatLngToAddsResult)
 open class GeoLatLngToAddsResult: NSObject {
     public var status : Int?  = ServiceStatus.OK
@@ -25,7 +39,6 @@ public struct GeoLatLngToMultiAdds: Codable {
     public var status : Int?  = ServiceStatus.OK
     public var addresses : [addressesItem]?
 }
-
 
 @objc(GeoTextToAddsResult)
 open class GeoTextToAddsResult: NSObject {
@@ -64,5 +77,14 @@ public class GeoObjItem: Codable {
     public var tourismInfo: String?
     public var hasImage: Bool? = false
     public var imagepath: String?
+    
+}
+
+public class GeoObjCircleItem: Codable {
+    
+    public var id: Int? = 0
+    public var level: Int? = 0
+    public var code: String?
+    public var name: String?
     
 }
