@@ -15,6 +15,18 @@ public struct GeoLatLngToAdds: Codable {
     public var data : String?
 }
 
+@objc(GeoLatLngToMultiAddsResult)
+open class GeoLatLngToMultiAddsResult: NSObject {
+    public var status : Int?  = ServiceStatus.OK
+    public var addresses : [addressesItem]?
+}
+
+public struct GeoLatLngToMultiAdds: Codable {
+    public var status : Int?  = ServiceStatus.OK
+    public var addresses : [addressesItem]?
+}
+
+
 @objc(GeoTextToAddsResult)
 open class GeoTextToAddsResult: NSObject {
     public var status : Int?  = ServiceStatus.OK
@@ -27,6 +39,12 @@ public struct GeoTextToAdds: Codable {
     public var status : Int?  = ServiceStatus.OK
     public var total : Int? = 0
     public var items : [GeoObjItem]?
+}
+
+public class addressesItem: Codable {
+    public var location: String?
+    public var locationLatLng: LatLng?
+    public var address: String?
 }
     
 public class GeoObjItem: Codable {

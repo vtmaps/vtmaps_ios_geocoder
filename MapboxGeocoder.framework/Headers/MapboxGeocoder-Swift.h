@@ -296,6 +296,12 @@ SWIFT_CLASS_NAMED("GeoLatLngToAddsResult")
 @end
 
 
+SWIFT_CLASS_NAMED("GeoLatLngToMultiAddsResult")
+@interface GeoLatLngToMultiAddsResult : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS_NAMED("GeoTextToAddsResult")
 @interface GeoTextToAddsResult : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -556,7 +562,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MBGeocoder *
 /// The HTTP URL used to fetch the data  from the API.
 - (NSURL * _Nonnull)urlForAdminserviceByBoundary:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nonnull)LatLng returnType:(NSString * _Nonnull)returnType type:(NSString * _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
 - (NSURLSessionDataTask * _Nonnull)geoserviceLatlngToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng completionHandler:(void (^ _Nonnull)(GeoLatLngToAddsResult * _Nullable, NSError * _Nullable))completionHandler;
-- (NSURLSessionDataTask * _Nonnull)geoserviceMultiLatlngToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
+- (NSURLSessionDataTask * _Nonnull)geoserviceMultiLatlngToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLngString completionHandler:(void (^ _Nonnull)(GeoLatLngToMultiAddsResult * _Nullable, NSError * _Nullable))completionHandler;
 - (NSURLSessionDataTask * _Nonnull)geoserviceTextToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options textSearch:(NSString * _Nullable)textSearch offset:(NSString * _Nullable)offset limit:(NSString * _Nullable)limit completionHandler:(void (^ _Nonnull)(GeoTextToAddsResult * _Nullable, NSError * _Nullable))completionHandler;
 - (NSURLSessionDataTask * _Nonnull)geoserviceSearchAroundWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng textSearch:(NSString * _Nullable)textSearch radius:(NSString * _Nullable)radius offset:(NSString * _Nullable)offset limit:(NSString * _Nullable)limit completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
 - (NSURLSessionDataTask * _Nonnull)adminserviceByPointWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(AdminPointResult * _Nullable, NSError * _Nullable))completionHandler;
@@ -947,6 +953,12 @@ SWIFT_CLASS_NAMED("GeoLatLngToAddsResult")
 @end
 
 
+SWIFT_CLASS_NAMED("GeoLatLngToMultiAddsResult")
+@interface GeoLatLngToMultiAddsResult : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS_NAMED("GeoTextToAddsResult")
 @interface GeoTextToAddsResult : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1207,7 +1219,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MBGeocoder *
 /// The HTTP URL used to fetch the data  from the API.
 - (NSURL * _Nonnull)urlForAdminserviceByBoundary:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nonnull)LatLng returnType:(NSString * _Nonnull)returnType type:(NSString * _Nonnull)type SWIFT_WARN_UNUSED_RESULT;
 - (NSURLSessionDataTask * _Nonnull)geoserviceLatlngToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng completionHandler:(void (^ _Nonnull)(GeoLatLngToAddsResult * _Nullable, NSError * _Nullable))completionHandler;
-- (NSURLSessionDataTask * _Nonnull)geoserviceMultiLatlngToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
+- (NSURLSessionDataTask * _Nonnull)geoserviceMultiLatlngToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLngString completionHandler:(void (^ _Nonnull)(GeoLatLngToMultiAddsResult * _Nullable, NSError * _Nullable))completionHandler;
 - (NSURLSessionDataTask * _Nonnull)geoserviceTextToAddressWithOptions:(MBGeocodeOptions * _Nonnull)options textSearch:(NSString * _Nullable)textSearch offset:(NSString * _Nullable)offset limit:(NSString * _Nullable)limit completionHandler:(void (^ _Nonnull)(GeoTextToAddsResult * _Nullable, NSError * _Nullable))completionHandler;
 - (NSURLSessionDataTask * _Nonnull)geoserviceSearchAroundWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng textSearch:(NSString * _Nullable)textSearch radius:(NSString * _Nullable)radius offset:(NSString * _Nullable)offset limit:(NSString * _Nullable)limit completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
 - (NSURLSessionDataTask * _Nonnull)adminserviceByPointWithOptions:(MBGeocodeOptions * _Nonnull)options LatLng:(NSString * _Nullable)LatLng returnType:(NSString * _Nullable)returnType type:(NSString * _Nullable)type completionHandler:(void (^ _Nonnull)(AdminPointResult * _Nullable, NSError * _Nullable))completionHandler;

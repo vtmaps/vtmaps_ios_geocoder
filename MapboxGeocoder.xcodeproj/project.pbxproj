@@ -30,10 +30,10 @@
 		7250416723828B630007ADD4 /* MBHistories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7250416423828B2C0007ADD4 /* MBHistories.swift */; };
 		7250416823828B640007ADD4 /* MBHistories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7250416423828B2C0007ADD4 /* MBHistories.swift */; };
 		91043C14253E849E000F79C0 /* MBGeoResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91043C13253E849E000F79C0 /* MBGeoResult.swift */; };
-		91043C25253E9130000F79C0 /* VMSMapUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 91043C23253E9130000F79C0 /* VMSMapUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		91043C26253E9130000F79C0 /* VMSMapUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91043C24253E9130000F79C0 /* VMSMapUtils.m */; };
-		91043C2D253E9526000F79C0 /* VMSLatLng.h in Headers */ = {isa = PBXBuildFile; fileRef = 91043C2B253E9526000F79C0 /* VMSLatLng.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		91043C2E253E9526000F79C0 /* VMSLatLng.m in Sources */ = {isa = PBXBuildFile; fileRef = 91043C2C253E9526000F79C0 /* VMSLatLng.m */; };
+		91043C25253E9130000F79C0 /* VTMapUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 91043C23253E9130000F79C0 /* VTMapUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		91043C2D253E9526000F79C0 /* VTMLatLng.h in Headers */ = {isa = PBXBuildFile; fileRef = 91043C2B253E9526000F79C0 /* VTMLatLng.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		91043C2E253E9526000F79C0 /* VTMLatLng.m in Sources */ = {isa = PBXBuildFile; fileRef = 91043C2C253E9526000F79C0 /* VTMLatLng.m */; };
+		91043C5F253EE6AC000F79C0 /* VTMapUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91043C5E253EE6AC000F79C0 /* VTMapUtils.m */; };
 		910D0DCD253D907200718A52 /* MBAdminResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D0DCC253D907200718A52 /* MBAdminResult.swift */; };
 		DA1AC0221E5C23B8006DF1D6 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1AC0211E5C23B8006DF1D6 /* Contacts.framework */; };
 		DA1AC0241E5C2425006DF1D6 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1AC0231E5C2425006DF1D6 /* Contacts.framework */; };
@@ -80,10 +80,10 @@
 		35D3DE382112410A00B62912 /* CoreLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocation.swift; sourceTree = "<group>"; };
 		7250416423828B2C0007ADD4 /* MBHistories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHistories.swift; sourceTree = "<group>"; };
 		91043C13253E849E000F79C0 /* MBGeoResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBGeoResult.swift; sourceTree = "<group>"; };
-		91043C23253E9130000F79C0 /* VMSMapUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMSMapUtils.h; sourceTree = "<group>"; };
-		91043C24253E9130000F79C0 /* VMSMapUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMSMapUtils.m; sourceTree = "<group>"; };
-		91043C2B253E9526000F79C0 /* VMSLatLng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMSLatLng.h; sourceTree = "<group>"; };
-		91043C2C253E9526000F79C0 /* VMSLatLng.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMSLatLng.m; sourceTree = "<group>"; };
+		91043C23253E9130000F79C0 /* VTMapUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMapUtils.h; sourceTree = "<group>"; };
+		91043C2B253E9526000F79C0 /* VTMLatLng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMLatLng.h; sourceTree = "<group>"; };
+		91043C2C253E9526000F79C0 /* VTMLatLng.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMLatLng.m; sourceTree = "<group>"; };
+		91043C5E253EE6AC000F79C0 /* VTMapUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMapUtils.m; sourceTree = "<group>"; };
 		910D0DCC253D907200718A52 /* MBAdminResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBAdminResult.swift; sourceTree = "<group>"; };
 		DA1AC0211E5C23B8006DF1D6 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		DA1AC0231E5C2425006DF1D6 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Contacts.framework; sourceTree = DEVELOPER_DIR; };
@@ -182,10 +182,10 @@
 		DDC246FC19A1C2C20054B0C0 /* MapboxGeocoder */ = {
 			isa = PBXGroup;
 			children = (
-				91043C2B253E9526000F79C0 /* VMSLatLng.h */,
-				91043C2C253E9526000F79C0 /* VMSLatLng.m */,
-				91043C23253E9130000F79C0 /* VMSMapUtils.h */,
-				91043C24253E9130000F79C0 /* VMSMapUtils.m */,
+				91043C2B253E9526000F79C0 /* VTMLatLng.h */,
+				91043C2C253E9526000F79C0 /* VTMLatLng.m */,
+				91043C23253E9130000F79C0 /* VTMapUtils.h */,
+				91043C5E253EE6AC000F79C0 /* VTMapUtils.m */,
 				91043C13253E849E000F79C0 /* MBGeoResult.swift */,
 				910D0DCC253D907200718A52 /* MBAdminResult.swift */,
 				DDC229581A36073B006BE405 /* MapboxGeocoder.h */,
@@ -249,8 +249,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91043C2D253E9526000F79C0 /* VMSLatLng.h in Headers */,
-				91043C25253E9130000F79C0 /* VMSMapUtils.h in Headers */,
+				91043C2D253E9526000F79C0 /* VTMLatLng.h in Headers */,
+				91043C25253E9130000F79C0 /* VTMapUtils.h in Headers */,
 				DA29C8DF1CEBE90200E48A61 /* MBPlacemarkScope.h in Headers */,
 				DDC2295C1A36074F006BE405 /* MapboxGeocoder.h in Headers */,
 				DA8B5C07225FB2F400CD1C99 /* MBPlacemarkPrecision.h in Headers */,
@@ -494,12 +494,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA2EC05E1CED732F00D4BA5D /* MBGeocodeOptions.swift in Sources */,
-				91043C26253E9130000F79C0 /* VMSMapUtils.m in Sources */,
 				DA2E03F21CB0FE0200D1269A /* MBRectangularRegion.swift in Sources */,
 				DDC2295E1A360843006BE405 /* MBGeocoder.swift in Sources */,
 				DA2EC05C1CED72E900D4BA5D /* MBPlacemarkScope.swift in Sources */,
+				91043C5F253EE6AC000F79C0 /* VTMapUtils.m in Sources */,
 				DA2E03F01CB0FDB400D1269A /* MBPlacemark.swift in Sources */,
-				91043C2E253E9526000F79C0 /* VMSLatLng.m in Sources */,
+				91043C2E253E9526000F79C0 /* VTMLatLng.m in Sources */,
 				91043C14253E849E000F79C0 /* MBGeoResult.swift in Sources */,
 				7250416523828B2C0007ADD4 /* MBHistories.swift in Sources */,
 				DA8B5C0B225FB2F400CD1C99 /* MBPlacemarkPrecision.m in Sources */,
