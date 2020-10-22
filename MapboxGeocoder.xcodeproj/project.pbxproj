@@ -82,10 +82,7 @@
 		FC13549925416AA200D86093 /* vtmap_ic_btn_gps.png in Resources */ = {isa = PBXBuildFile; fileRef = FC13549825416AA200D86093 /* vtmap_ic_btn_gps.png */; };
 		FC13549C25416B0100D86093 /* vtmap_ic_location_point.png in Resources */ = {isa = PBXBuildFile; fileRef = FC13549A25416B0100D86093 /* vtmap_ic_location_point.png */; };
 		FC13549D25416B0100D86093 /* vtmap_ic_location_direction.png in Resources */ = {isa = PBXBuildFile; fileRef = FC13549B25416B0100D86093 /* vtmap_ic_location_direction.png */; };
-		FC13549E25416B6800D86093 /* vtmap_ic_location_direction.png in Sources */ = {isa = PBXBuildFile; fileRef = FC13549B25416B0100D86093 /* vtmap_ic_location_direction.png */; };
-		FC13549F25416B6800D86093 /* vtmap_ic_location_point.png in Sources */ = {isa = PBXBuildFile; fileRef = FC13549A25416B0100D86093 /* vtmap_ic_location_point.png */; };
-		FC1354A025416B6800D86093 /* vtmap_ic_btn_gps.png in Sources */ = {isa = PBXBuildFile; fileRef = FC13549825416AA200D86093 /* vtmap_ic_btn_gps.png */; };
-		FC9EA23D25402C490069D51C /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9EA23C25402C480069D51C /* Mapbox.framework */; };
+		FCFEB2732541982600F1683D /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFEB2722541982600F1683D /* Mapbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,7 +124,7 @@
 		FC13549825416AA200D86093 /* vtmap_ic_btn_gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_btn_gps.png; sourceTree = "<group>"; };
 		FC13549A25416B0100D86093 /* vtmap_ic_location_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_location_point.png; sourceTree = "<group>"; };
 		FC13549B25416B0100D86093 /* vtmap_ic_location_direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_location_direction.png; sourceTree = "<group>"; };
-		FC9EA23C25402C480069D51C /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		FCFEB2722541982600F1683D /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA1AC0221E5C23B8006DF1D6 /* Contacts.framework in Frameworks */,
-				FC9EA23D25402C490069D51C /* Mapbox.framework in Frameworks */,
+				FCFEB2732541982600F1683D /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +181,6 @@
 		DD342B4719A140EE00219F77 = {
 			isa = PBXGroup;
 			children = (
-				FC9EA23C25402C480069D51C /* Mapbox.framework */,
 				DDC246FC19A1C2C20054B0C0 /* MapboxGeocoder */,
 				DD342B5119A140EE00219F77 /* Products */,
 				DA737AF01E5999D500AD2CDE /* Frameworks */,
@@ -238,6 +234,7 @@
 		DDC2470619A1C3B40054B0C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FCFEB2722541982600F1683D /* Mapbox.framework */,
 				DDC2470719A1C3B40054B0C0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -530,9 +527,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC13549E25416B6800D86093 /* vtmap_ic_location_direction.png in Sources */,
-				FC13549F25416B6800D86093 /* vtmap_ic_location_point.png in Sources */,
-				FC1354A025416B6800D86093 /* vtmap_ic_btn_gps.png in Sources */,
 				DA2EC05E1CED732F00D4BA5D /* MBGeocodeOptions.swift in Sources */,
 				DA2E03F21CB0FE0200D1269A /* MBRectangularRegion.swift in Sources */,
 				DDC2295E1A360843006BE405 /* MBGeocoder.swift in Sources */,
@@ -862,6 +856,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/MapboxGeocoder",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -897,6 +892,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/MapboxGeocoder",
 				);
 				INFOPLIST_FILE = MapboxGeocoder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
