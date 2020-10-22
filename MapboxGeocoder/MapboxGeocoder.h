@@ -12,3 +12,6 @@ FOUNDATION_EXPORT const unsigned char MapboxGeocoderVersionString[];
 #import "MBPlacemarkScope.h"
 #import "VTMapUtils.h"
 #import "VTMLatLng.h"
+#import "VTMBaseControl.h"
+#import "VTMBaseControl_Ext.h"
+#import "VTMGPSControl.h"

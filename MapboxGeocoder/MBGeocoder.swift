@@ -1,5 +1,5 @@
 import Foundation
-
+import Mapbox
 
 typealias JSONDictionary = [String: Any]
 
