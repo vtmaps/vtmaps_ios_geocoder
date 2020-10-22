@@ -1,0 +1,293 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "History"
+- "PlaceHistory"
+- "SearchHistory"
+provides-nominal:
+- "14MapboxGeocoder7HistoryV"
+- "14MapboxGeocoder12PlaceHistoryV"
+- "14MapboxGeocoder13SearchHistoryV"
+provides-member:
+- ["14MapboxGeocoder7HistoryV", ""]
+- ["14MapboxGeocoder12PlaceHistoryV", ""]
+- ["14MapboxGeocoder13SearchHistoryV", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- "AssignmentPrecedence"
+- "Codable"
+- !private "FloatLiteralType"
+- "History"
+- "Int"
+- !private "IntegerLiteralType"
+- "PlaceHistory"
+- "SearchHistory"
+- "String"
+- !private "StringLiteralType"
+- !private "~="
+depends-member:
+- ["s9CodingKeyP", "=="]
+- !private ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_rawHashValue"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- ["s9CodingKeyP", "stringValue"]
+- ["s28CustomDebugStringConvertibleP", "=="]
+- !private ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_rawHashValue"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- ["s23CustomStringConvertibleP", "=="]
+- !private ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_rawHashValue"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- ["Se", ""]
+- !private ["Se", "address"]
+- !private ["Se", "companyPlace"]
+- !private ["Se", "createdDate"]
+- ["Se", "encode"]
+- !private ["Se", "homePlace"]
+- !private ["Se", "iconName"]
+- !private ["Se", "id"]
+- ["Se", "init"]
+- !private ["Se", "keySearch"]
+- !private ["Se", "lat"]
+- !private ["Se", "lng"]
+- !private ["Se", "name"]
+- !private ["Se", "placeType"]
+- !private ["Se", "poiId"]
+- !private ["Se", "poiType"]
+- !private ["Se", "searchHistories"]
+- !private ["Se", "userId"]
+- !private ["s7DecoderP", "container"]
+- ["SE", ""]
+- !private ["SE", "address"]
+- !private ["SE", "companyPlace"]
+- !private ["SE", "createdDate"]
+- ["SE", "encode"]
+- !private ["SE", "homePlace"]
+- !private ["SE", "iconName"]
+- !private ["SE", "id"]
+- ["SE", "init"]
+- !private ["SE", "keySearch"]
+- !private ["SE", "lat"]
+- !private ["SE", "lng"]
+- !private ["SE", "name"]
+- !private ["SE", "placeType"]
+- !private ["SE", "poiId"]
+- !private ["SE", "poiType"]
+- !private ["SE", "searchHistories"]
+- !private ["SE", "userId"]
+- !private ["s7EncoderP", "container"]
+- ["SQ", "=="]
+- !private ["SQ", ""]
+- ["SQ", "_rawHashValue"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- ["SQ", "intValue"]
+- ["SQ", "stringValue"]
+- ["SH", "=="]
+- !private ["SH", ""]
+- ["SH", "_rawHashValue"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- ["SH", "intValue"]
+- ["SH", "stringValue"]
+- !private ["s6HasherV", "combine"]
+- ["14MapboxGeocoder7HistoryV", "PlaceHistory"]
+- ["14MapboxGeocoder7HistoryV", "SearchHistory"]
+- ["14MapboxGeocoder7HistoryV", "companyPlace"]
+- ["14MapboxGeocoder7HistoryV", "deinit"]
+- ["14MapboxGeocoder7HistoryV", "encode"]
+- ["14MapboxGeocoder7HistoryV", "homePlace"]
+- ["14MapboxGeocoder7HistoryV", "init"]
+- ["14MapboxGeocoder7HistoryV", "searchHistories"]
+- !private ["s22KeyedDecodingContainerV", "decode"]
+- !private ["s22KeyedDecodingContainerV", "decodeIfPresent"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decode"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decodeIfPresent"]
+- !private ["s22KeyedEncodingContainerV", "encode"]
+- !private ["s22KeyedEncodingContainerV", "encodeIfPresent"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encodeIfPresent"]
+- ["14MapboxGeocoder12PlaceHistoryV", "Int"]
+- ["14MapboxGeocoder12PlaceHistoryV", "String"]
+- ["14MapboxGeocoder12PlaceHistoryV", "address"]
+- ["14MapboxGeocoder12PlaceHistoryV", "deinit"]
+- ["14MapboxGeocoder12PlaceHistoryV", "encode"]
+- ["14MapboxGeocoder12PlaceHistoryV", "iconName"]
+- ["14MapboxGeocoder12PlaceHistoryV", "id"]
+- ["14MapboxGeocoder12PlaceHistoryV", "init"]
+- ["14MapboxGeocoder12PlaceHistoryV", "lat"]
+- ["14MapboxGeocoder12PlaceHistoryV", "lng"]
+- ["14MapboxGeocoder12PlaceHistoryV", "name"]
+- ["14MapboxGeocoder12PlaceHistoryV", "placeType"]
+- ["14MapboxGeocoder12PlaceHistoryV", "poiId"]
+- ["14MapboxGeocoder12PlaceHistoryV", "poiType"]
+- ["14MapboxGeocoder12PlaceHistoryV", "userId"]
+- ["14MapboxGeocoder13SearchHistoryV", "Int"]
+- ["14MapboxGeocoder13SearchHistoryV", "String"]
+- ["14MapboxGeocoder13SearchHistoryV", "address"]
+- ["14MapboxGeocoder13SearchHistoryV", "createdDate"]
+- ["14MapboxGeocoder13SearchHistoryV", "deinit"]
+- ["14MapboxGeocoder13SearchHistoryV", "encode"]
+- ["14MapboxGeocoder13SearchHistoryV", "iconName"]
+- ["14MapboxGeocoder13SearchHistoryV", "id"]
+- ["14MapboxGeocoder13SearchHistoryV", "init"]
+- ["14MapboxGeocoder13SearchHistoryV", "keySearch"]
+- ["14MapboxGeocoder13SearchHistoryV", "name"]
+- ["14MapboxGeocoder13SearchHistoryV", "poiId"]
+- ["14MapboxGeocoder13SearchHistoryV", "poiType"]
+- ["14MapboxGeocoder13SearchHistoryV", "userId"]
+depends-nominal:
+- "s9CodingKeyP"
+- "s28CustomDebugStringConvertibleP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "s7DecoderP"
+- "SE"
+- !private "s7EncoderP"
+- "SQ"
+- "SH"
+- !private "s6HasherV"
+- "14MapboxGeocoder7HistoryV"
+- !private "s22KeyedDecodingContainerV"
+- !private "s30KeyedDecodingContainerProtocolP"
+- !private "s22KeyedEncodingContainerV"
+- !private "s30KeyedEncodingContainerProtocolP"
+- "14MapboxGeocoder12PlaceHistoryV"
+- "14MapboxGeocoder13SearchHistoryV"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/ObjectiveC.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/CoreImage.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/QuartzCore.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Dispatch.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Metal.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Darwin.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/CoreLocation.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Foundation.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/CoreFoundation.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/CoreGraphics.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Contacts.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Swift.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/UIKit.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Combine.swiftmodule/x86_64-apple-ios-simulator.swiftmodule"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLMapCamera.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLSource.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLRasterDEMSource.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLImageSource.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLTileSource.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLRasterTileSource.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLVectorTileSource.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLShapeSource.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLComputedShapeSource.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLAnnotationImage.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLOfflineStorage.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLStyle.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLPolyline.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLShape.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/MapboxGeocoder/MBPlacemarkScope.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLFeature.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLMapViewDelegate.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLStyleValue.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/MapboxGeocoder/VTMLatLng.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLOfflinePack.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/MapboxGeocoder/VTMGPSControl.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/MapboxGeocoder/VTMBaseControl.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLPolygon.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLOfflineRegion.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLTilePyramidOfflineRegion.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLShapeOfflineRegion.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/MapboxGeocoder/MBPlacemarkPrecision.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLAttributedExpression.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLUserLocation.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLFoundation.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLLoggingConfiguration.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLNetworkConfiguration.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLAnnotation.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLPointAnnotation.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLShapeCollection.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLPointCollection.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLCameraChangeReason.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLCompassButton.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLAttributionInfo.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/MapboxGeocoder/MapboxGeocoder.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLLocationManager.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLSDKMetricsManager.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLAccountManager.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLCluster.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLDistanceFormatter.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLCoordinateFormatter.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLClockDirectionFormatter.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLCompassDirectionFormatter.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLMapSnapshotter.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLOpenGLStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLForegroundStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLBackgroundStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLHillshadeStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLCircleStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLLineStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLFillStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLSymbolStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLFillExtrusionStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLHeatmapStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLRasterStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLVectorStyleLayer.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLTypes.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/MapboxGeocoder/VTMapUtils.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLMapView+IBAdditions.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/NSPredicate+MGLAdditions.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/NSValue+MGLAdditions.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/NSExpression+MGLAdditions.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLLight.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLMultiPoint.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/MapboxGeocoder/VTMBaseControl_Ext.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLAnnotationView.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLUserLocationAnnotationView.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLMapView.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLCalloutView.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/Mapbox.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLOverlay.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Headers/MGLGeometry.h"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/build/MapboxGeocoder.build/Debug-iphonesimulator/MapboxGeocoder.build/unextended-module.modulemap"
+- "/Users/luongdv3/Documents/LUONGDV3/WORKSPACE/GIT_WORKSPACE/vtmaps_ios_geocoder_githubdesktop/vtmaps_ios_geocoder/Frameworks/Mapbox.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/System/Library/Frameworks/Contacts.framework/Headers/Contacts.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.7.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "20e764dbcee28c75bf7a27cb662843ca"

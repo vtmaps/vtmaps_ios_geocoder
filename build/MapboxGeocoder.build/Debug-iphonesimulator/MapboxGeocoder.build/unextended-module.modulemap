@@ -1,0 +1,10 @@
+framework module MapboxGeocoder {
+  umbrella header "MapboxGeocoder.h"
+
+  export *
+  module * { export * }
+}
+
+module MapboxGeocoder.__Swift {
+    exclude header "MapboxGeocoder-Swift.h"
+}
