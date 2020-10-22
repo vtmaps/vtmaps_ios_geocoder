@@ -36,8 +36,6 @@
 		91043C5F253EE6AC000F79C0 /* VTMapUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91043C5E253EE6AC000F79C0 /* VTMapUtils.m */; };
 		910D0DCD253D907200718A52 /* MBAdminResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D0DCC253D907200718A52 /* MBAdminResult.swift */; };
 		DA1AC0221E5C23B8006DF1D6 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1AC0211E5C23B8006DF1D6 /* Contacts.framework */; };
-		DA1AC0241E5C2425006DF1D6 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1AC0231E5C2425006DF1D6 /* Contacts.framework */; };
-		DA1AC0261E5C2436006DF1D6 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1AC0251E5C2436006DF1D6 /* Contacts.framework */; };
 		DA29C8DF1CEBE90200E48A61 /* MBPlacemarkScope.h in Headers */ = {isa = PBXBuildFile; fileRef = DA29C8DE1CEBE90200E48A61 /* MBPlacemarkScope.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA2E03F01CB0FDB400D1269A /* MBPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E03EF1CB0FDB400D1269A /* MBPlacemark.swift */; };
 		DA2E03F21CB0FE0200D1269A /* MBRectangularRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E03F11CB0FE0200D1269A /* MBRectangularRegion.swift */; };
@@ -79,13 +77,10 @@
 		FC0F636125414A1F00640A7E /* VTMBaseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0F634E25414A1E00640A7E /* VTMBaseControl.m */; };
 		FC0F636225414A1F00640A7E /* VTMGPSControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0F634F25414A1E00640A7E /* VTMGPSControl.m */; };
 		FC0F636325414A1F00640A7E /* VTMBaseControl_Ext.h in Headers */ = {isa = PBXBuildFile; fileRef = FC0F635025414A1E00640A7E /* VTMBaseControl_Ext.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FCFEB28225419D1500F1683D /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFEB28125419D1400F1683D /* Mapbox.framework */; };
-		FCFEB28925419D8000F1683D /* vtmap_ic_btn_gps.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFEB28425419D8000F1683D /* vtmap_ic_btn_gps.png */; };
-		FCFEB28A25419D8000F1683D /* vtmap_ic_location_direction.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFEB28525419D8000F1683D /* vtmap_ic_location_direction.png */; };
-		FCFEB28B25419D8000F1683D /* vtmap_ic_location_point.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFEB28625419D8000F1683D /* vtmap_ic_location_point.png */; };
-		FCFEB28C25419D8000F1683D /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFEB28825419D8000F1683D /* Mapbox.framework */; };
-		FCFEB28D25419E2400F1683D /* Mapbox.framework in Resources */ = {isa = PBXBuildFile; fileRef = FCFEB28825419D8000F1683D /* Mapbox.framework */; };
-		FCFEB28E25419E3900F1683D /* Mapbox.framework in Sources */ = {isa = PBXBuildFile; fileRef = FCFEB28825419D8000F1683D /* Mapbox.framework */; };
+		FCD02A3D2541AC0300C7EAA3 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD02A392541AC0300C7EAA3 /* Mapbox.framework */; };
+		FCD02A3E2541AC0300C7EAA3 /* vtmap_ic_btn_gps.png in Resources */ = {isa = PBXBuildFile; fileRef = FCD02A3A2541AC0300C7EAA3 /* vtmap_ic_btn_gps.png */; };
+		FCD02A3F2541AC0300C7EAA3 /* vtmap_ic_location_direction.png in Resources */ = {isa = PBXBuildFile; fileRef = FCD02A3B2541AC0300C7EAA3 /* vtmap_ic_location_direction.png */; };
+		FCD02A402541AC0300C7EAA3 /* vtmap_ic_location_point.png in Resources */ = {isa = PBXBuildFile; fileRef = FCD02A3C2541AC0300C7EAA3 /* vtmap_ic_location_point.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,8 +93,6 @@
 		91043C5E253EE6AC000F79C0 /* VTMapUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMapUtils.m; sourceTree = "<group>"; };
 		910D0DCC253D907200718A52 /* MBAdminResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBAdminResult.swift; sourceTree = "<group>"; };
 		DA1AC0211E5C23B8006DF1D6 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
-		DA1AC0231E5C2425006DF1D6 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Contacts.framework; sourceTree = DEVELOPER_DIR; };
-		DA1AC0251E5C2436006DF1D6 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.1.sdk/System/Library/Frameworks/Contacts.framework; sourceTree = DEVELOPER_DIR; };
 		DA29C8DE1CEBE90200E48A61 /* MBPlacemarkScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPlacemarkScope.h; sourceTree = "<group>"; };
 		DA2E03EF1CB0FDB400D1269A /* MBPlacemark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBPlacemark.swift; sourceTree = "<group>"; };
 		DA2E03F11CB0FE0200D1269A /* MBRectangularRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBRectangularRegion.swift; sourceTree = "<group>"; };
@@ -108,10 +101,6 @@
 		DA5170961CF1B18F00CD6DCF /* MapboxGeocoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxGeocoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5170C11CF253EE00CD6DCF /* MapboxGeocoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxGeocoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5170EB1CF2581900CD6DCF /* MapboxGeocoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxGeocoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA737AF81E599B5800AD2CDE /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
-		DA737AFA1E599B9D00AD2CDE /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/tvOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
-		DA737AFC1E599BB300AD2CDE /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/Mac/OHHTTPStubs.framework; sourceTree = "<group>"; };
-		DA737AFF1E599BD400AD2CDE /* OHHTTPStubs.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OHHTTPStubs.framework.dSYM; path = Carthage/Build/Mac/OHHTTPStubs.framework.dSYM; sourceTree = "<group>"; };
 		DA8B5C05225FB2F400CD1C99 /* MBPlacemarkPrecision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBPlacemarkPrecision.h; sourceTree = "<group>"; };
 		DA8B5C06225FB2F400CD1C99 /* MBPlacemarkPrecision.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBPlacemarkPrecision.m; sourceTree = "<group>"; };
 		DDC229581A36073B006BE405 /* MapboxGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapboxGeocoder.h; sourceTree = "<group>"; };
@@ -123,11 +112,10 @@
 		FC0F634E25414A1E00640A7E /* VTMBaseControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMBaseControl.m; sourceTree = "<group>"; };
 		FC0F634F25414A1E00640A7E /* VTMGPSControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMGPSControl.m; sourceTree = "<group>"; };
 		FC0F635025414A1E00640A7E /* VTMBaseControl_Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMBaseControl_Ext.h; sourceTree = "<group>"; };
-		FCFEB28125419D1400F1683D /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Frameworks/Mapbox.framework; sourceTree = "<group>"; };
-		FCFEB28425419D8000F1683D /* vtmap_ic_btn_gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_btn_gps.png; sourceTree = "<group>"; };
-		FCFEB28525419D8000F1683D /* vtmap_ic_location_direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_location_direction.png; sourceTree = "<group>"; };
-		FCFEB28625419D8000F1683D /* vtmap_ic_location_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_location_point.png; sourceTree = "<group>"; };
-		FCFEB28825419D8000F1683D /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		FCD02A392541AC0300C7EAA3 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		FCD02A3A2541AC0300C7EAA3 /* vtmap_ic_btn_gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_btn_gps.png; sourceTree = "<group>"; };
+		FCD02A3B2541AC0300C7EAA3 /* vtmap_ic_location_direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_location_direction.png; sourceTree = "<group>"; };
+		FCD02A3C2541AC0300C7EAA3 /* vtmap_ic_location_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_location_point.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +123,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA1AC0241E5C2425006DF1D6 /* Contacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +137,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA1AC0261E5C2436006DF1D6 /* Contacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,8 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA1AC0221E5C23B8006DF1D6 /* Contacts.framework in Frameworks */,
-				FCFEB28225419D1500F1683D /* Mapbox.framework in Frameworks */,
-				FCFEB28C25419D8000F1683D /* Mapbox.framework in Frameworks */,
+				FCD02A3D2541AC0300C7EAA3 /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,14 +155,7 @@
 		DA737AF01E5999D500AD2CDE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FCFEB28125419D1400F1683D /* Mapbox.framework */,
-				DA1AC0251E5C2436006DF1D6 /* Contacts.framework */,
-				DA1AC0231E5C2425006DF1D6 /* Contacts.framework */,
 				DA1AC0211E5C23B8006DF1D6 /* Contacts.framework */,
-				DA737AFC1E599BB300AD2CDE /* OHHTTPStubs.framework */,
-				DA737AFF1E599BD400AD2CDE /* OHHTTPStubs.framework.dSYM */,
-				DA737AFA1E599B9D00AD2CDE /* OHHTTPStubs.framework */,
-				DA737AF81E599B5800AD2CDE /* OHHTTPStubs.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -185,8 +163,6 @@
 		DD342B4719A140EE00219F77 = {
 			isa = PBXGroup;
 			children = (
-				FCFEB28725419D8000F1683D /* Frameworks */,
-				FCFEB28325419D8000F1683D /* Resources */,
 				DDC246FC19A1C2C20054B0C0 /* MapboxGeocoder */,
 				DD342B5119A140EE00219F77 /* Products */,
 				DA737AF01E5999D500AD2CDE /* Frameworks */,
@@ -207,6 +183,7 @@
 		DDC246FC19A1C2C20054B0C0 /* MapboxGeocoder */ = {
 			isa = PBXGroup;
 			children = (
+				FCD02A382541AC0300C7EAA3 /* Resources */,
 				FC0F635025414A1E00640A7E /* VTMBaseControl_Ext.h */,
 				FC0F634D25414A1E00640A7E /* VTMBaseControl.h */,
 				FC0F634E25414A1E00640A7E /* VTMBaseControl.m */,
@@ -242,22 +219,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FCFEB28325419D8000F1683D /* Resources */ = {
+		FCD02A382541AC0300C7EAA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FCFEB28425419D8000F1683D /* vtmap_ic_btn_gps.png */,
-				FCFEB28525419D8000F1683D /* vtmap_ic_location_direction.png */,
-				FCFEB28625419D8000F1683D /* vtmap_ic_location_point.png */,
+				FCD02A392541AC0300C7EAA3 /* Mapbox.framework */,
+				FCD02A3A2541AC0300C7EAA3 /* vtmap_ic_btn_gps.png */,
+				FCD02A3B2541AC0300C7EAA3 /* vtmap_ic_location_direction.png */,
+				FCD02A3C2541AC0300C7EAA3 /* vtmap_ic_location_point.png */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		FCFEB28725419D8000F1683D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FCFEB28825419D8000F1683D /* Mapbox.framework */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,10 +439,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCFEB28D25419E2400F1683D /* Mapbox.framework in Resources */,
-				FCFEB28925419D8000F1683D /* vtmap_ic_btn_gps.png in Resources */,
-				FCFEB28B25419D8000F1683D /* vtmap_ic_location_point.png in Resources */,
-				FCFEB28A25419D8000F1683D /* vtmap_ic_location_direction.png in Resources */,
+				FCD02A3E2541AC0300C7EAA3 /* vtmap_ic_btn_gps.png in Resources */,
+				FCD02A402541AC0300C7EAA3 /* vtmap_ic_location_point.png in Resources */,
+				FCD02A3F2541AC0300C7EAA3 /* vtmap_ic_location_direction.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +517,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCFEB28E25419E3900F1683D /* Mapbox.framework in Sources */,
 				DA2EC05E1CED732F00D4BA5D /* MBGeocodeOptions.swift in Sources */,
 				DA2E03F21CB0FE0200D1269A /* MBRectangularRegion.swift in Sources */,
 				DDC2295E1A360843006BE405 /* MBGeocoder.swift in Sources */,
@@ -881,6 +849,8 @@
 					"$(PROJECT_DIR)/MapboxGeocoder",
 					"$(PROJECT_DIR)/MapboxGeocoder/Frameworks",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Resources",
+					"$(PROJECT_DIR)/MapboxGeocoder/Resources",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -919,6 +889,8 @@
 					"$(PROJECT_DIR)/MapboxGeocoder",
 					"$(PROJECT_DIR)/MapboxGeocoder/Frameworks",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Resources",
+					"$(PROJECT_DIR)/MapboxGeocoder/Resources",
 				);
 				INFOPLIST_FILE = MapboxGeocoder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
