@@ -79,10 +79,10 @@
 		FC0F636125414A1F00640A7E /* VTMBaseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0F634E25414A1E00640A7E /* VTMBaseControl.m */; };
 		FC0F636225414A1F00640A7E /* VTMGPSControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0F634F25414A1E00640A7E /* VTMGPSControl.m */; };
 		FC0F636325414A1F00640A7E /* VTMBaseControl_Ext.h in Headers */ = {isa = PBXBuildFile; fileRef = FC0F635025414A1E00640A7E /* VTMBaseControl_Ext.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FC13549925416AA200D86093 /* vtmap_ic_btn_gps.png in Resources */ = {isa = PBXBuildFile; fileRef = FC13549825416AA200D86093 /* vtmap_ic_btn_gps.png */; };
-		FC13549C25416B0100D86093 /* vtmap_ic_location_point.png in Resources */ = {isa = PBXBuildFile; fileRef = FC13549A25416B0100D86093 /* vtmap_ic_location_point.png */; };
-		FC13549D25416B0100D86093 /* vtmap_ic_location_direction.png in Resources */ = {isa = PBXBuildFile; fileRef = FC13549B25416B0100D86093 /* vtmap_ic_location_direction.png */; };
-		FCFEB27625419A4C00F1683D /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFEB27525419A4C00F1683D /* Mapbox.framework */; };
+		FCFEB27D25419B7600F1683D /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFEB27825419B7600F1683D /* Mapbox.framework */; };
+		FCFEB27E25419B7600F1683D /* vtmap_ic_btn_gps.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFEB27A25419B7600F1683D /* vtmap_ic_btn_gps.png */; };
+		FCFEB27F25419B7600F1683D /* vtmap_ic_location_direction.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFEB27B25419B7600F1683D /* vtmap_ic_location_direction.png */; };
+		FCFEB28025419B7600F1683D /* vtmap_ic_location_point.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFEB27C25419B7600F1683D /* vtmap_ic_location_point.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,10 +121,10 @@
 		FC0F634E25414A1E00640A7E /* VTMBaseControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMBaseControl.m; sourceTree = "<group>"; };
 		FC0F634F25414A1E00640A7E /* VTMGPSControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMGPSControl.m; sourceTree = "<group>"; };
 		FC0F635025414A1E00640A7E /* VTMBaseControl_Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMBaseControl_Ext.h; sourceTree = "<group>"; };
-		FC13549825416AA200D86093 /* vtmap_ic_btn_gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_btn_gps.png; sourceTree = "<group>"; };
-		FC13549A25416B0100D86093 /* vtmap_ic_location_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_location_point.png; sourceTree = "<group>"; };
-		FC13549B25416B0100D86093 /* vtmap_ic_location_direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_location_direction.png; sourceTree = "<group>"; };
-		FCFEB27525419A4C00F1683D /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		FCFEB27825419B7600F1683D /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		FCFEB27A25419B7600F1683D /* vtmap_ic_btn_gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_btn_gps.png; sourceTree = "<group>"; };
+		FCFEB27B25419B7600F1683D /* vtmap_ic_location_direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_location_direction.png; sourceTree = "<group>"; };
+		FCFEB27C25419B7600F1683D /* vtmap_ic_location_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_location_point.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA1AC0221E5C23B8006DF1D6 /* Contacts.framework in Frameworks */,
-				FCFEB27625419A4C00F1683D /* Mapbox.framework in Frameworks */,
+				FCFEB27D25419B7600F1683D /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,10 +201,8 @@
 		DDC246FC19A1C2C20054B0C0 /* MapboxGeocoder */ = {
 			isa = PBXGroup;
 			children = (
-				FCFEB27525419A4C00F1683D /* Mapbox.framework */,
-				FC13549B25416B0100D86093 /* vtmap_ic_location_direction.png */,
-				FC13549A25416B0100D86093 /* vtmap_ic_location_point.png */,
-				FC13549825416AA200D86093 /* vtmap_ic_btn_gps.png */,
+				FCFEB27725419B7600F1683D /* Frameworks */,
+				FCFEB27925419B7600F1683D /* Resources */,
 				FC0F635025414A1E00640A7E /* VTMBaseControl_Ext.h */,
 				FC0F634D25414A1E00640A7E /* VTMBaseControl.h */,
 				FC0F634E25414A1E00640A7E /* VTMBaseControl.m */,
@@ -238,6 +236,24 @@
 				DDC2470719A1C3B40054B0C0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCFEB27725419B7600F1683D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCFEB27825419B7600F1683D /* Mapbox.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		FCFEB27925419B7600F1683D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FCFEB27A25419B7600F1683D /* vtmap_ic_btn_gps.png */,
+				FCFEB27B25419B7600F1683D /* vtmap_ic_location_direction.png */,
+				FCFEB27C25419B7600F1683D /* vtmap_ic_location_point.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,9 +465,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC13549D25416B0100D86093 /* vtmap_ic_location_direction.png in Resources */,
-				FC13549C25416B0100D86093 /* vtmap_ic_location_point.png in Resources */,
-				FC13549925416AA200D86093 /* vtmap_ic_btn_gps.png in Resources */,
+				FCFEB27E25419B7600F1683D /* vtmap_ic_btn_gps.png in Resources */,
+				FCFEB28025419B7600F1683D /* vtmap_ic_location_point.png in Resources */,
+				FCFEB27F25419B7600F1683D /* vtmap_ic_location_direction.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,6 +873,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/MapboxGeocoder",
+					"$(PROJECT_DIR)/MapboxGeocoder/Frameworks",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -893,6 +910,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/MapboxGeocoder",
+					"$(PROJECT_DIR)/MapboxGeocoder/Frameworks",
 				);
 				INFOPLIST_FILE = MapboxGeocoder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
