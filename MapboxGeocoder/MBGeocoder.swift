@@ -9,6 +9,8 @@ public let MBGeocoderErrorDomain = "MBGeocoderErrorDomain"
 /// The Mapbox access token specified in the main application bundle’s Info.plist.
 let defaultAccessToken = Bundle.main.infoDictionary?["VTMapAccessToken"] as? String
 let bundleIdentifier = Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String
+let vtmapDebugMode = Bundle.main.infoDictionary?["VTMapDebugMode"] as? Bool
+
 /// The user agent string for any HTTP requests performed directly within this library.
 let userAgent: String = {
     var components: [String] = []
@@ -147,7 +149,7 @@ open class Geocoder: NSObject {
     /// The API endpoint to request the geocodes from.
     internal var apiEndpoint: URL
     
-    public var debugMode: Bool = false {
+    public var debugMode: Bool = vtmapDebugMode ?? false {
       didSet {
         var baseURLComponents = URLComponents()
         baseURLComponents.scheme = "https"
@@ -174,6 +176,7 @@ open class Geocoder: NSObject {
      - parameter host: An optional hostname to the server API. The Mapbox Geocoding API endpoint is used by default.
      */
     @objc public init(accessToken: String?, host: String?) {
+        
         let accessToken = accessToken ?? defaultAccessToken
         assert(accessToken != nil && !accessToken!.isEmpty, "A Mapbox access token is required. Go to <https://www.mapbox.com/studio/account/tokens/>. In Info.plist, set the MGLMapboxAccessToken key to your access token, or use the Geocoder(accessToken:host:) initializer.")
 

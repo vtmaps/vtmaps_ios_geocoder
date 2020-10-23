@@ -72,6 +72,14 @@
 		DA8B5C0E225FB2F400CD1C99 /* MBPlacemarkPrecision.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8B5C06225FB2F400CD1C99 /* MBPlacemarkPrecision.m */; };
 		DDC2295C1A36074F006BE405 /* MapboxGeocoder.h in Headers */ = {isa = PBXBuildFile; fileRef = DDC229581A36073B006BE405 /* MapboxGeocoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DDC2295E1A360843006BE405 /* MBGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC229591A36073B006BE405 /* MBGeocoder.swift */; };
+		FC0AC60225427C0700CC5455 /* VTMMapTypeControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0AC60025427C0700CC5455 /* VTMMapTypeControl.m */; };
+		FC0AC60525428FAA00CC5455 /* VTMMapTypeControl.h in Sources */ = {isa = PBXBuildFile; fileRef = FC0AC5FF25427C0700CC5455 /* VTMMapTypeControl.h */; };
+		FC0AC60625428FBC00CC5455 /* VTMMapTypeControl.h in Headers */ = {isa = PBXBuildFile; fileRef = FC0AC5FF25427C0700CC5455 /* VTMMapTypeControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC0AC60B2542903200CC5455 /* vtmap_ic_btn_layer_0.png in Resources */ = {isa = PBXBuildFile; fileRef = FC0AC6072542903200CC5455 /* vtmap_ic_btn_layer_0.png */; };
+		FC0AC60C2542903300CC5455 /* vtmap_ic_btn_layer_1.png in Resources */ = {isa = PBXBuildFile; fileRef = FC0AC6082542903200CC5455 /* vtmap_ic_btn_layer_1.png */; };
+		FC0AC60D2542903300CC5455 /* vtmap_ic_btn_layer_2.png in Resources */ = {isa = PBXBuildFile; fileRef = FC0AC6092542903200CC5455 /* vtmap_ic_btn_layer_2.png */; };
+		FC0AC60E2542903300CC5455 /* vtmap_ic_btn_layer_3.png in Resources */ = {isa = PBXBuildFile; fileRef = FC0AC60A2542903200CC5455 /* vtmap_ic_btn_layer_3.png */; };
+		FC0AC6122542C1E600CC5455 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC0AC6142542C1E600CC5455 /* Localizable.strings */; };
 		FC0F635125414A1E00640A7E /* VTMGPSControl.h in Headers */ = {isa = PBXBuildFile; fileRef = FC0F633D25414A1E00640A7E /* VTMGPSControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC0F636025414A1F00640A7E /* VTMBaseControl.h in Headers */ = {isa = PBXBuildFile; fileRef = FC0F634D25414A1E00640A7E /* VTMBaseControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC0F636125414A1F00640A7E /* VTMBaseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0F634E25414A1E00640A7E /* VTMBaseControl.m */; };
@@ -107,6 +115,14 @@
 		DDC229591A36073B006BE405 /* MBGeocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBGeocoder.swift; sourceTree = "<group>"; };
 		DDC2470419A1C3B40054B0C0 /* MapboxGeocoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxGeocoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC2470719A1C3B40054B0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC0AC5FF25427C0700CC5455 /* VTMMapTypeControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMMapTypeControl.h; sourceTree = "<group>"; };
+		FC0AC60025427C0700CC5455 /* VTMMapTypeControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMMapTypeControl.m; sourceTree = "<group>"; };
+		FC0AC6072542903200CC5455 /* vtmap_ic_btn_layer_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_btn_layer_0.png; sourceTree = "<group>"; };
+		FC0AC6082542903200CC5455 /* vtmap_ic_btn_layer_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_btn_layer_1.png; sourceTree = "<group>"; };
+		FC0AC6092542903200CC5455 /* vtmap_ic_btn_layer_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_btn_layer_2.png; sourceTree = "<group>"; };
+		FC0AC60A2542903200CC5455 /* vtmap_ic_btn_layer_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_btn_layer_3.png; sourceTree = "<group>"; };
+		FC0AC6132542C1E600CC5455 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FC0AC6152542C1E900CC5455 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FC0F633D25414A1E00640A7E /* VTMGPSControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMGPSControl.h; sourceTree = "<group>"; };
 		FC0F634D25414A1E00640A7E /* VTMBaseControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMBaseControl.h; sourceTree = "<group>"; };
 		FC0F634E25414A1E00640A7E /* VTMBaseControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMBaseControl.m; sourceTree = "<group>"; };
@@ -183,7 +199,8 @@
 		DDC246FC19A1C2C20054B0C0 /* MapboxGeocoder */ = {
 			isa = PBXGroup;
 			children = (
-				FCD02A382541AC0300C7EAA3 /* Resources */,
+				FC0AC5FF25427C0700CC5455 /* VTMMapTypeControl.h */,
+				FC0AC60025427C0700CC5455 /* VTMMapTypeControl.m */,
 				FC0F635025414A1E00640A7E /* VTMBaseControl_Ext.h */,
 				FC0F634D25414A1E00640A7E /* VTMBaseControl.h */,
 				FC0F634E25414A1E00640A7E /* VTMBaseControl.m */,
@@ -204,6 +221,7 @@
 				DA29C8DE1CEBE90200E48A61 /* MBPlacemarkScope.h */,
 				DA2EC05B1CED72E900D4BA5D /* MBPlacemarkScope.swift */,
 				DA2E03F11CB0FE0200D1269A /* MBRectangularRegion.swift */,
+				FCD02A382541AC0300C7EAA3 /* Resources */,
 				DDC2470619A1C3B40054B0C0 /* Supporting Files */,
 				35D3DE382112410A00B62912 /* CoreLocation.swift */,
 				7250416423828B2C0007ADD4 /* MBHistories.swift */,
@@ -222,10 +240,15 @@
 		FCD02A382541AC0300C7EAA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FC0AC6072542903200CC5455 /* vtmap_ic_btn_layer_0.png */,
+				FC0AC6082542903200CC5455 /* vtmap_ic_btn_layer_1.png */,
+				FC0AC6092542903200CC5455 /* vtmap_ic_btn_layer_2.png */,
+				FC0AC60A2542903200CC5455 /* vtmap_ic_btn_layer_3.png */,
 				FCD02A392541AC0300C7EAA3 /* Mapbox.framework */,
 				FCD02A3A2541AC0300C7EAA3 /* vtmap_ic_btn_gps.png */,
 				FCD02A3B2541AC0300C7EAA3 /* vtmap_ic_location_direction.png */,
 				FCD02A3C2541AC0300C7EAA3 /* vtmap_ic_location_point.png */,
+				FC0AC6142542C1E600CC5455 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -275,6 +298,7 @@
 				FC0F635125414A1E00640A7E /* VTMGPSControl.h in Headers */,
 				FC0F636325414A1F00640A7E /* VTMBaseControl_Ext.h in Headers */,
 				FC0F636025414A1F00640A7E /* VTMBaseControl.h in Headers */,
+				FC0AC60625428FBC00CC5455 /* VTMMapTypeControl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +421,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				vi,
 			);
 			mainGroup = DD342B4719A140EE00219F77;
 			productRefGroup = DD342B5119A140EE00219F77 /* Products */;
@@ -439,8 +463,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC0AC60B2542903200CC5455 /* vtmap_ic_btn_layer_0.png in Resources */,
 				FCD02A3E2541AC0300C7EAA3 /* vtmap_ic_btn_gps.png in Resources */,
+				FC0AC60D2542903300CC5455 /* vtmap_ic_btn_layer_2.png in Resources */,
 				FCD02A402541AC0300C7EAA3 /* vtmap_ic_location_point.png in Resources */,
+				FC0AC60E2542903300CC5455 /* vtmap_ic_btn_layer_3.png in Resources */,
+				FC0AC6122542C1E600CC5455 /* Localizable.strings in Resources */,
+				FC0AC60C2542903300CC5455 /* vtmap_ic_btn_layer_1.png in Resources */,
 				FCD02A3F2541AC0300C7EAA3 /* vtmap_ic_location_direction.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,13 +557,27 @@
 				91043C14253E849E000F79C0 /* MBGeoResult.swift in Sources */,
 				FC0F636225414A1F00640A7E /* VTMGPSControl.m in Sources */,
 				7250416523828B2C0007ADD4 /* MBHistories.swift in Sources */,
+				FC0AC60225427C0700CC5455 /* VTMMapTypeControl.m in Sources */,
 				DA8B5C0B225FB2F400CD1C99 /* MBPlacemarkPrecision.m in Sources */,
 				35D3DE392112410A00B62912 /* CoreLocation.swift in Sources */,
 				910D0DCD253D907200718A52 /* MBAdminResult.swift in Sources */,
+				FC0AC60525428FAA00CC5455 /* VTMMapTypeControl.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FC0AC6142542C1E600CC5455 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC0AC6132542C1E600CC5455 /* en */,
+				FC0AC6152542C1E900CC5455 /* vi */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DA5170A71CF1B18F00CD6DCF /* Debug */ = {

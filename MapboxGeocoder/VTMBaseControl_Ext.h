@@ -24,6 +24,8 @@ typedef enum {
 #define VMS_BASE_CONTROL_DEFAULT
 #define VMSControlPadding 5
 #define VMSControlMargin 5
+#define VMSMapTypeControlPadding 8
+#define VMSMapTypeControlMargin 8
 #endif
 
 @interface VTMBaseControl () {

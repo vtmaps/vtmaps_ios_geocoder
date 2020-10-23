@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  MapboxGeocoder
+
+  Created by luongdv3 on 10/23/20.
+  Copyright © 2020 Mapbox. All rights reserved.
+*/
+
+"TXT_MAPSTYPE_TRANSPORT" = "Traffic";
+"TXT_MAPSTYPE_ADMIN" = "Administration";
+"TXT_MAPSTYPE_TERRAIN" = "Google";
+"TXT_MAPSTYPE_SATTELITE" = "Satellite";

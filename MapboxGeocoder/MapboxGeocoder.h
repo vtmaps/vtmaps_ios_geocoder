@@ -15,3 +15,4 @@ FOUNDATION_EXPORT const unsigned char MapboxGeocoderVersionString[];
 #import "VTMBaseControl.h"
 #import "VTMBaseControl_Ext.h"
 #import "VTMGPSControl.h"
+#import "VTMMapTypeControl.h"
