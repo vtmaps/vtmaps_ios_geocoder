@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		FC370D442535B2FB00961DD2 /* MapboxGeocoderUnivesal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FC370D472535B2FB00961DD2 /* Build configuration list for PBXAggregateTarget "MapboxGeocoderUnivesal" */;
+			buildPhases = (
+				FC370D482535B37000961DD2 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = MapboxGeocoderUnivesal;
+			productName = MapboxGeocoderUnivesal;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		35D3DE392112410A00B62912 /* CoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3DE382112410A00B62912 /* CoreLocation.swift */; };
 		35D3DE3A2112410A00B62912 /* CoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3DE382112410A00B62912 /* CoreLocation.swift */; };
@@ -15,9 +29,13 @@
 		7250416623828B620007ADD4 /* MBHistories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7250416423828B2C0007ADD4 /* MBHistories.swift */; };
 		7250416723828B630007ADD4 /* MBHistories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7250416423828B2C0007ADD4 /* MBHistories.swift */; };
 		7250416823828B640007ADD4 /* MBHistories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7250416423828B2C0007ADD4 /* MBHistories.swift */; };
+		91043C14253E849E000F79C0 /* MBGeoResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91043C13253E849E000F79C0 /* MBGeoResult.swift */; };
+		91043C25253E9130000F79C0 /* VTMapUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 91043C23253E9130000F79C0 /* VTMapUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		91043C2D253E9526000F79C0 /* VTMLatLng.h in Headers */ = {isa = PBXBuildFile; fileRef = 91043C2B253E9526000F79C0 /* VTMLatLng.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		91043C2E253E9526000F79C0 /* VTMLatLng.m in Sources */ = {isa = PBXBuildFile; fileRef = 91043C2C253E9526000F79C0 /* VTMLatLng.m */; };
+		91043C5F253EE6AC000F79C0 /* VTMapUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91043C5E253EE6AC000F79C0 /* VTMapUtils.m */; };
+		910D0DCD253D907200718A52 /* MBAdminResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D0DCC253D907200718A52 /* MBAdminResult.swift */; };
 		DA1AC0221E5C23B8006DF1D6 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1AC0211E5C23B8006DF1D6 /* Contacts.framework */; };
-		DA1AC0241E5C2425006DF1D6 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1AC0231E5C2425006DF1D6 /* Contacts.framework */; };
-		DA1AC0261E5C2436006DF1D6 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1AC0251E5C2436006DF1D6 /* Contacts.framework */; };
 		DA29C8DF1CEBE90200E48A61 /* MBPlacemarkScope.h in Headers */ = {isa = PBXBuildFile; fileRef = DA29C8DE1CEBE90200E48A61 /* MBPlacemarkScope.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA2E03F01CB0FDB400D1269A /* MBPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E03EF1CB0FDB400D1269A /* MBPlacemark.swift */; };
 		DA2E03F21CB0FE0200D1269A /* MBRectangularRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E03F11CB0FE0200D1269A /* MBRectangularRegion.swift */; };
@@ -54,14 +72,27 @@
 		DA8B5C0E225FB2F400CD1C99 /* MBPlacemarkPrecision.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8B5C06225FB2F400CD1C99 /* MBPlacemarkPrecision.m */; };
 		DDC2295C1A36074F006BE405 /* MapboxGeocoder.h in Headers */ = {isa = PBXBuildFile; fileRef = DDC229581A36073B006BE405 /* MapboxGeocoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DDC2295E1A360843006BE405 /* MBGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC229591A36073B006BE405 /* MBGeocoder.swift */; };
+		FC0F635125414A1E00640A7E /* VTMGPSControl.h in Headers */ = {isa = PBXBuildFile; fileRef = FC0F633D25414A1E00640A7E /* VTMGPSControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC0F636025414A1F00640A7E /* VTMBaseControl.h in Headers */ = {isa = PBXBuildFile; fileRef = FC0F634D25414A1E00640A7E /* VTMBaseControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC0F636125414A1F00640A7E /* VTMBaseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0F634E25414A1E00640A7E /* VTMBaseControl.m */; };
+		FC0F636225414A1F00640A7E /* VTMGPSControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0F634F25414A1E00640A7E /* VTMGPSControl.m */; };
+		FC0F636325414A1F00640A7E /* VTMBaseControl_Ext.h in Headers */ = {isa = PBXBuildFile; fileRef = FC0F635025414A1E00640A7E /* VTMBaseControl_Ext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCD02A3D2541AC0300C7EAA3 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD02A392541AC0300C7EAA3 /* Mapbox.framework */; };
+		FCD02A3E2541AC0300C7EAA3 /* vtmap_ic_btn_gps.png in Resources */ = {isa = PBXBuildFile; fileRef = FCD02A3A2541AC0300C7EAA3 /* vtmap_ic_btn_gps.png */; };
+		FCD02A3F2541AC0300C7EAA3 /* vtmap_ic_location_direction.png in Resources */ = {isa = PBXBuildFile; fileRef = FCD02A3B2541AC0300C7EAA3 /* vtmap_ic_location_direction.png */; };
+		FCD02A402541AC0300C7EAA3 /* vtmap_ic_location_point.png in Resources */ = {isa = PBXBuildFile; fileRef = FCD02A3C2541AC0300C7EAA3 /* vtmap_ic_location_point.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		35D3DE382112410A00B62912 /* CoreLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocation.swift; sourceTree = "<group>"; };
 		7250416423828B2C0007ADD4 /* MBHistories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHistories.swift; sourceTree = "<group>"; };
+		91043C13253E849E000F79C0 /* MBGeoResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBGeoResult.swift; sourceTree = "<group>"; };
+		91043C23253E9130000F79C0 /* VTMapUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMapUtils.h; sourceTree = "<group>"; };
+		91043C2B253E9526000F79C0 /* VTMLatLng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMLatLng.h; sourceTree = "<group>"; };
+		91043C2C253E9526000F79C0 /* VTMLatLng.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMLatLng.m; sourceTree = "<group>"; };
+		91043C5E253EE6AC000F79C0 /* VTMapUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMapUtils.m; sourceTree = "<group>"; };
+		910D0DCC253D907200718A52 /* MBAdminResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBAdminResult.swift; sourceTree = "<group>"; };
 		DA1AC0211E5C23B8006DF1D6 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
-		DA1AC0231E5C2425006DF1D6 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Contacts.framework; sourceTree = DEVELOPER_DIR; };
-		DA1AC0251E5C2436006DF1D6 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.1.sdk/System/Library/Frameworks/Contacts.framework; sourceTree = DEVELOPER_DIR; };
 		DA29C8DE1CEBE90200E48A61 /* MBPlacemarkScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPlacemarkScope.h; sourceTree = "<group>"; };
 		DA2E03EF1CB0FDB400D1269A /* MBPlacemark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBPlacemark.swift; sourceTree = "<group>"; };
 		DA2E03F11CB0FE0200D1269A /* MBRectangularRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBRectangularRegion.swift; sourceTree = "<group>"; };
@@ -70,17 +101,21 @@
 		DA5170961CF1B18F00CD6DCF /* MapboxGeocoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxGeocoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5170C11CF253EE00CD6DCF /* MapboxGeocoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxGeocoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5170EB1CF2581900CD6DCF /* MapboxGeocoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxGeocoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA737AED1E5999C900AD2CDE /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Carthage/Build/iOS/Mapbox.framework; sourceTree = "<group>"; };
-		DA737AF81E599B5800AD2CDE /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
-		DA737AFA1E599B9D00AD2CDE /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/tvOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
-		DA737AFC1E599BB300AD2CDE /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/Mac/OHHTTPStubs.framework; sourceTree = "<group>"; };
-		DA737AFF1E599BD400AD2CDE /* OHHTTPStubs.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OHHTTPStubs.framework.dSYM; path = Carthage/Build/Mac/OHHTTPStubs.framework.dSYM; sourceTree = "<group>"; };
 		DA8B5C05225FB2F400CD1C99 /* MBPlacemarkPrecision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBPlacemarkPrecision.h; sourceTree = "<group>"; };
 		DA8B5C06225FB2F400CD1C99 /* MBPlacemarkPrecision.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBPlacemarkPrecision.m; sourceTree = "<group>"; };
 		DDC229581A36073B006BE405 /* MapboxGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapboxGeocoder.h; sourceTree = "<group>"; };
 		DDC229591A36073B006BE405 /* MBGeocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBGeocoder.swift; sourceTree = "<group>"; };
 		DDC2470419A1C3B40054B0C0 /* MapboxGeocoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxGeocoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC2470719A1C3B40054B0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC0F633D25414A1E00640A7E /* VTMGPSControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMGPSControl.h; sourceTree = "<group>"; };
+		FC0F634D25414A1E00640A7E /* VTMBaseControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMBaseControl.h; sourceTree = "<group>"; };
+		FC0F634E25414A1E00640A7E /* VTMBaseControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMBaseControl.m; sourceTree = "<group>"; };
+		FC0F634F25414A1E00640A7E /* VTMGPSControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMGPSControl.m; sourceTree = "<group>"; };
+		FC0F635025414A1E00640A7E /* VTMBaseControl_Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMBaseControl_Ext.h; sourceTree = "<group>"; };
+		FCD02A392541AC0300C7EAA3 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		FCD02A3A2541AC0300C7EAA3 /* vtmap_ic_btn_gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_btn_gps.png; sourceTree = "<group>"; };
+		FCD02A3B2541AC0300C7EAA3 /* vtmap_ic_location_direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_location_direction.png; sourceTree = "<group>"; };
+		FCD02A3C2541AC0300C7EAA3 /* vtmap_ic_location_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vtmap_ic_location_point.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +123,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA1AC0241E5C2425006DF1D6 /* Contacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +137,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA1AC0261E5C2436006DF1D6 /* Contacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA1AC0221E5C23B8006DF1D6 /* Contacts.framework in Frameworks */,
+				FCD02A3D2541AC0300C7EAA3 /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,14 +155,7 @@
 		DA737AF01E5999D500AD2CDE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DA1AC0251E5C2436006DF1D6 /* Contacts.framework */,
-				DA1AC0231E5C2425006DF1D6 /* Contacts.framework */,
 				DA1AC0211E5C23B8006DF1D6 /* Contacts.framework */,
-				DA737AFC1E599BB300AD2CDE /* OHHTTPStubs.framework */,
-				DA737AFF1E599BD400AD2CDE /* OHHTTPStubs.framework.dSYM */,
-				DA737AFA1E599B9D00AD2CDE /* OHHTTPStubs.framework */,
-				DA737AF81E599B5800AD2CDE /* OHHTTPStubs.framework */,
-				DA737AED1E5999C900AD2CDE /* Mapbox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -156,6 +183,18 @@
 		DDC246FC19A1C2C20054B0C0 /* MapboxGeocoder */ = {
 			isa = PBXGroup;
 			children = (
+				FCD02A382541AC0300C7EAA3 /* Resources */,
+				FC0F635025414A1E00640A7E /* VTMBaseControl_Ext.h */,
+				FC0F634D25414A1E00640A7E /* VTMBaseControl.h */,
+				FC0F634E25414A1E00640A7E /* VTMBaseControl.m */,
+				FC0F633D25414A1E00640A7E /* VTMGPSControl.h */,
+				FC0F634F25414A1E00640A7E /* VTMGPSControl.m */,
+				91043C2B253E9526000F79C0 /* VTMLatLng.h */,
+				91043C2C253E9526000F79C0 /* VTMLatLng.m */,
+				91043C23253E9130000F79C0 /* VTMapUtils.h */,
+				91043C5E253EE6AC000F79C0 /* VTMapUtils.m */,
+				91043C13253E849E000F79C0 /* MBGeoResult.swift */,
+				910D0DCC253D907200718A52 /* MBAdminResult.swift */,
 				DDC229581A36073B006BE405 /* MapboxGeocoder.h */,
 				DA2EC05D1CED732F00D4BA5D /* MBGeocodeOptions.swift */,
 				DDC229591A36073B006BE405 /* MBGeocoder.swift */,
@@ -178,6 +217,17 @@
 				DDC2470719A1C3B40054B0C0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCD02A382541AC0300C7EAA3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FCD02A392541AC0300C7EAA3 /* Mapbox.framework */,
+				FCD02A3A2541AC0300C7EAA3 /* vtmap_ic_btn_gps.png */,
+				FCD02A3B2541AC0300C7EAA3 /* vtmap_ic_location_direction.png */,
+				FCD02A3C2541AC0300C7EAA3 /* vtmap_ic_location_point.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,9 +267,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91043C2D253E9526000F79C0 /* VTMLatLng.h in Headers */,
+				91043C25253E9130000F79C0 /* VTMapUtils.h in Headers */,
 				DA29C8DF1CEBE90200E48A61 /* MBPlacemarkScope.h in Headers */,
 				DDC2295C1A36074F006BE405 /* MapboxGeocoder.h in Headers */,
 				DA8B5C07225FB2F400CD1C99 /* MBPlacemarkPrecision.h in Headers */,
+				FC0F635125414A1E00640A7E /* VTMGPSControl.h in Headers */,
+				FC0F636325414A1F00640A7E /* VTMBaseControl_Ext.h in Headers */,
+				FC0F636025414A1F00640A7E /* VTMBaseControl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +359,9 @@
 		DD342B4819A140EE00219F77 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 1020;
@@ -323,7 +381,13 @@
 					};
 					DDC2470319A1C3B40054B0C0 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 8SEM5YR976;
 						LastSwiftMigration = 1020;
+					};
+					FC370D442535B2FB00961DD2 = {
+						CreatedOnToolsVersion = 11.7;
+						DevelopmentTeam = 8SEM5YR976;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -344,6 +408,7 @@
 				DA5170951CF1B18F00CD6DCF /* MapboxGeocoderMac */,
 				DA5170C01CF253EE00CD6DCF /* MapboxGeocoderTV */,
 				DA5170EA1CF2581900CD6DCF /* MapboxGeocoderWatch */,
+				FC370D442535B2FB00961DD2 /* MapboxGeocoderUnivesal */,
 			);
 		};
 /* End PBXProject section */
@@ -374,10 +439,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCD02A3E2541AC0300C7EAA3 /* vtmap_ic_btn_gps.png in Resources */,
+				FCD02A402541AC0300C7EAA3 /* vtmap_ic_location_point.png in Resources */,
+				FCD02A3F2541AC0300C7EAA3 /* vtmap_ic_location_direction.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FC370D482535B37000961DD2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#!/bin/sh\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\nPROJECT_NAME = \"MapboxGeocoder\"\n# make sure the output directory exists\n#tạo thư mục chứa thư viện sau khi build\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\n#Bước 1 : Build framework cho device và máy ảo\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\n#Bước 2. Copy framework sau khi build vào thư mục Universal folder đã tạo ở trên\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\n#Bước 3 : Copy Copy Swift mdules từ máy ảo iphone ( nếu có) vaoif thư mục copy\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\n#Bước 4 : Tạo một \"universal binary file\" sử dụng lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Step 5. Convenience step to copy the framework to the project's directory\n#Bước 5. Copy framework vào thư mục của project\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}\"\n\n# Step 6. Convenience step to open the project's directory in Finder\n#Bước 6. Mở thư mục chứa framework khi build xong\nopen \"${PROJECT_DIR}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DA5170911CF1B18F00CD6DCF /* Sources */ = {
@@ -433,10 +521,16 @@
 				DA2E03F21CB0FE0200D1269A /* MBRectangularRegion.swift in Sources */,
 				DDC2295E1A360843006BE405 /* MBGeocoder.swift in Sources */,
 				DA2EC05C1CED72E900D4BA5D /* MBPlacemarkScope.swift in Sources */,
+				FC0F636125414A1F00640A7E /* VTMBaseControl.m in Sources */,
+				91043C5F253EE6AC000F79C0 /* VTMapUtils.m in Sources */,
 				DA2E03F01CB0FDB400D1269A /* MBPlacemark.swift in Sources */,
+				91043C2E253E9526000F79C0 /* VTMLatLng.m in Sources */,
+				91043C14253E849E000F79C0 /* MBGeoResult.swift in Sources */,
+				FC0F636225414A1F00640A7E /* VTMGPSControl.m in Sources */,
 				7250416523828B2C0007ADD4 /* MBHistories.swift in Sources */,
 				DA8B5C0B225FB2F400CD1C99 /* MBPlacemarkPrecision.m in Sources */,
 				35D3DE392112410A00B62912 /* CoreLocation.swift in Sources */,
+				910D0DCD253D907200718A52 /* MBAdminResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,22 +834,35 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 16;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8SEM5YR976;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 16;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/MapboxGeocoder",
+					"$(PROJECT_DIR)/MapboxGeocoder/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Resources",
+					"$(PROJECT_DIR)/MapboxGeocoder/Resources",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MapboxGeocoder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/MapboxGeocoder $(PROJECT_DIR)/Frameworks $(PROJECT_DIR)/Resources";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mapbox.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2,3";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -767,22 +874,53 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 16;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8SEM5YR976;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 16;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/MapboxGeocoder",
+					"$(PROJECT_DIR)/MapboxGeocoder/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Resources",
+					"$(PROJECT_DIR)/MapboxGeocoder/Resources",
+				);
 				INFOPLIST_FILE = MapboxGeocoder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/MapboxGeocoder $(PROJECT_DIR)/Frameworks $(PROJECT_DIR)/Resources";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mapbox.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2,3";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FC370D452535B2FB00961DD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8SEM5YR976;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FC370D462535B2FB00961DD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8SEM5YR976;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -830,6 +968,15 @@
 			buildConfigurations = (
 				DDC2471E19A1C3B40054B0C0 /* Debug */,
 				DDC2471F19A1C3B40054B0C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC370D472535B2FB00961DD2 /* Build configuration list for PBXAggregateTarget "MapboxGeocoderUnivesal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC370D452535B2FB00961DD2 /* Debug */,
+				FC370D462535B2FB00961DD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
