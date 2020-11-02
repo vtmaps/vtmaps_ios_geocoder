@@ -137,15 +137,26 @@
 }
 
 - (VTMMapType) getMapTypeOfVTMapProduction{
+    NSString *BASE_URL = @"https://api.viettelmaps.vn/gateway/mapservice/v1/media/";
+    NSString *VTMAP_TRAFFIC_DAY= [NSString stringWithFormat:@"%@style.json", BASE_URL];// giao thong
+    NSString *VTMAP_ADMIN = [NSString stringWithFormat:@"%@style-admin.json", BASE_URL]; //hanh chinh
+    NSString *VTMAP_GTRANS = [NSString stringWithFormat:@"%@gtrans_style.json", BASE_URL]; //google
+    NSString *VTMAP_GSAT = [NSString stringWithFormat:@"%@gsat_style.json", BASE_URL]; // ve tinh
+    
+    NSURL *URL_VTMAP_TRAFFIC_DAY = [NSURL URLWithString:VTMAP_TRAFFIC_DAY];
+    NSURL *URL_VTMAP_ADMIN = [NSURL URLWithString:VTMAP_ADMIN];
+    NSURL *URL_VTMAP_GTRANS = [NSURL URLWithString:VTMAP_GTRANS];
+    NSURL *URL_VTMAP_GSAT = [NSURL URLWithString:VTMAP_GSAT];
+    
     VTMMapType mapType;
     if (self.mapView) {
-        if (self.mapView.styleURL == MGLStyle.outdoorsStyleURL) {
+        if ([self.mapView.styleURL isEqual:URL_VTMAP_TRAFFIC_DAY]) {
             mapType = VTMMapTypeTransport;
-        }else if (self.mapView.styleURL == MGLStyle.lightStyleURL) {
+        }else if ([self.mapView.styleURL isEqual: URL_VTMAP_ADMIN]) {
             mapType = VTMMapTypeAdmin;
-        }else if (self.mapView.styleURL == MGLStyle.darkStyleURL) {
+        }else if ([self.mapView.styleURL isEqual: URL_VTMAP_GTRANS]) {
             mapType = VTMMapTypeTerrain;
-        }else if (self.mapView.styleURL == MGLStyle.satelliteStyleURL) {
+        }else if ([self.mapView.styleURL isEqual: URL_VTMAP_GSAT]) {
             mapType = VTMMapTypeSattelite;
         }else{
             mapType = VTMMapTypeTransport;
