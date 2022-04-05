@@ -137,7 +137,7 @@
 }
 
 - (VTMMapType) getMapTypeOfVTMapProduction{
-    NSString *BASE_URL = @"https://api.viettelmaps.vn/gateway/mapservice/v1/media/";
+    NSString *BASE_URL = @"https://api-maps.viettel.vn/gateway/mapservice/v1/media/";
     NSString *VTMAP_TRAFFIC_DAY= [NSString stringWithFormat:@"%@style.json", BASE_URL];// giao thong
     NSString *VTMAP_ADMIN = [NSString stringWithFormat:@"%@style-admin.json", BASE_URL]; //hanh chinh
     NSString *VTMAP_GTRANS = [NSString stringWithFormat:@"%@gtrans_style.json", BASE_URL]; //google
@@ -251,11 +251,11 @@
 }
 
 - (void) setMapTypeForVTMapProduction:(VTMMapType) mapType{
-   NSString *BASE_URL = @"https://api.viettelmaps.vn/gateway/mapservice/v1/media/";
-    NSString *VTMAP_TRAFFIC_DAY= [NSString stringWithFormat:@"%@style.json", BASE_URL];// giao thong
-    NSString *VTMAP_ADMIN = [NSString stringWithFormat:@"%@style-admin.json", BASE_URL]; //hanh chinh
-    NSString *VTMAP_GTRANS = [NSString stringWithFormat:@"%@gtrans_style.json", BASE_URL]; //google
-    NSString *VTMAP_GSAT = [NSString stringWithFormat:@"%@gsat_style.json", BASE_URL]; // ve tinh
+   NSString *BASE_URL = @"https://api-maps.viettel.vn/gateway/mapservice/v1/media/";
+    NSString *VTMAP_TRAFFIC_DAY= [NSString stringWithFormat:@"%@v4-style.json", BASE_URL];// giao thong
+    NSString *VTMAP_ADMIN = [NSString stringWithFormat:@"%@v4-style-admin.json", BASE_URL]; //hanh chinh
+    NSString *VTMAP_GTRANS = [NSString stringWithFormat:@"%@v4-gtrans_style.json", BASE_URL]; //google
+    NSString *VTMAP_GSAT = [NSString stringWithFormat:@"%@gv4-sat_style.json", BASE_URL]; // ve tinh
     
     NSURL *URL_VTMAP_TRAFFIC_DAY = [NSURL URLWithString:VTMAP_TRAFFIC_DAY];
     NSURL *URL_VTMAP_ADMIN = [NSURL URLWithString:VTMAP_ADMIN];

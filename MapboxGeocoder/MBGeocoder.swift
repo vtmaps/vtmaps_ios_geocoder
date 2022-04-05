@@ -158,7 +158,7 @@ open class Geocoder: NSObject {
             baseURLComponents.host = "api.viettelmaps.com.vn"
             baseURLComponents.port = 8080
         }else{
-            baseURLComponents.host = "api.viettelmaps.vn"
+            baseURLComponents.host = "api-maps.viettel.vn"
         }
         self.apiEndpoint = baseURLComponents.url!
       }
@@ -185,10 +185,10 @@ open class Geocoder: NSObject {
         baseURLComponents.scheme = "https"
         
         if(debugMode){
-            baseURLComponents.host = host ?? "api.viettelmaps.com.vn"
+            baseURLComponents.host = host ?? "viettelmaps.com.vn"
             baseURLComponents.port = 8080
         }else{
-            baseURLComponents.host = host ?? "api.viettelmaps.vn"
+            baseURLComponents.host = host ?? "api-maps.viettel.vn"
         }
         self.apiEndpoint = baseURLComponents.url!
         
@@ -1078,7 +1078,7 @@ open class Geocoder: NSObject {
     
     fileprivate func historiesDataTask(uid: String, token: String, method: String, completionHandler: @escaping (_ histories: History?) -> Void, errorHandler: @escaping (_ error: NSError) -> Void) -> URLSessionDataTask {
         //var request = URLRequest(url: URL(string: "https://api.viettelmaps.com.vn:8080/gateway/searching/v1/histories")!)
-		var request = URLRequest(url: URL(string: "http://api.viettelmaps.vn/gateway/searching/v1/histories")!)
+		var request = URLRequest(url: URL(string: "http://api-maps.viettel.vn/gateway/searching/v1/histories")!)
 
         request.httpMethod = method
         request.setValue("Bearer \(token)", forHTTPHeaderField:"Authorization")
