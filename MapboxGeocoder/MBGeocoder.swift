@@ -190,7 +190,7 @@ open class Geocoder: NSObject {
         }else{
             baseURLComponents.host = host ?? "api-maps.viettel.vn"
         }
-        self.apiEndpoint = baseURLComponents.url!
+        self.apiEndpoint = URL(string: "http://10.60.156.29:8764")!
         
     }
 
@@ -399,7 +399,7 @@ open class Geocoder: NSObject {
             $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
         }.joined(separator: ";")
 
-        let unparameterizedURL = URL(string: "/gateway/searching/v1/search/geocoding/\(queryComponent).json", relativeTo: apiEndpoint)!
+        let unparameterizedURL = URL(string: "/gateway/searching/v4/search/geocoding/\(queryComponent).json", relativeTo: apiEndpoint)!
         var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
         components.queryItems = params
         return components.url!
@@ -518,7 +518,7 @@ open class Geocoder: NSObject {
                 $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
             }.joined(separator: ";")
 
-            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/geoprocessing", relativeTo: apiEndpoint)!
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v4-old/place-api/VTMapService/geoprocessing", relativeTo: apiEndpoint)!
             var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
             components.queryItems = params
             return components.url!
@@ -544,7 +544,7 @@ open class Geocoder: NSObject {
                 $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
             }.joined(separator: ";")
 
-            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/geoprocessing", relativeTo: apiEndpoint)!
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v4-old/place-api/VTMapService/geoprocessing", relativeTo: apiEndpoint)!
             var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
             components.queryItems = params
             return components.url!
@@ -571,7 +571,7 @@ open class Geocoder: NSObject {
                 $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
             }.joined(separator: ";")
 
-            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/placeService/geocoding", relativeTo: apiEndpoint)!
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v4-old/place-api/VTMapService/placeService/geocoding", relativeTo: apiEndpoint)!
             var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
             components.queryItems = params
             return components.url!
@@ -605,7 +605,7 @@ open class Geocoder: NSObject {
                 $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
             }.joined(separator: ";")
 
-            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/placeService/geoprocessing", relativeTo: apiEndpoint)!
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v4-old/place-api/VTMapService/placeService/geoprocessing", relativeTo: apiEndpoint)!
             var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
             components.queryItems = params
             return components.url!
@@ -634,7 +634,7 @@ open class Geocoder: NSObject {
                 $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
             }.joined(separator: ";")
 
-            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/administrationService", relativeTo: apiEndpoint)!
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v4-old/place-api/VTMapService/administrationService", relativeTo: apiEndpoint)!
             var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
             components.queryItems = params
             return components.url!
@@ -663,7 +663,7 @@ open class Geocoder: NSObject {
                 $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
             }.joined(separator: ";")
 
-            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/administrationService", relativeTo: apiEndpoint)!
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v4-old/place-api/VTMapService/administrationService", relativeTo: apiEndpoint)!
             var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
             components.queryItems = params
             return components.url!
@@ -688,7 +688,7 @@ open class Geocoder: NSObject {
                 $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
             }.joined(separator: ";")
 
-            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/administrationService", relativeTo: apiEndpoint)!
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v4-old/place-api/VTMapService/administrationService", relativeTo: apiEndpoint)!
             var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
             components.queryItems = params
             return components.url!
@@ -712,7 +712,7 @@ open class Geocoder: NSObject {
                 $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.geocodingQueryAllowedCharacterSet()) ?? ""
             }.joined(separator: ";")
 
-            let unparameterizedURL = URL(string: "/gateway/placeapi/v2-old/place-api/VTMapService/administrationService", relativeTo: apiEndpoint)!
+            let unparameterizedURL = URL(string: "/gateway/placeapi/v4-old/place-api/VTMapService/administrationService", relativeTo: apiEndpoint)!
             var components = URLComponents(url: unparameterizedURL, resolvingAgainstBaseURL: true)!
             components.queryItems = params
             return components.url!

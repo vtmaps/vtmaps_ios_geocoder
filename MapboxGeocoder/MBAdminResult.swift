@@ -74,7 +74,7 @@ public struct ServiceStatus{
 public struct AdminLevelType: Codable{
     public static let PROVINCE = 1
     
-    public static let DISTRICT = 2
+//    public static let DISTRICT = 2
     
     public static let COMMUNE = 3
     
