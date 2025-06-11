@@ -190,8 +190,8 @@ open class Geocoder: NSObject {
         }else{
             baseURLComponents.host = host ?? "api-maps.viettel.vn"
         }
-        self.apiEndpoint = URL(string: "http://10.60.156.29:8764")!
         
+        self.apiEndpoint = baseURLComponents.url!
     }
 
     /**
