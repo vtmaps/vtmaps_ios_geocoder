@@ -242,7 +242,7 @@ open class Geocoder: NSObject {
     }
     
     @discardableResult
-    @objc(geocodeWithOptions:uid:completionHandler:)
+    @objc(geocodeV1WithOptions:uid:completionHandler:)
     open func geocodeV1(_ options: GeocodeOptions, uid: String? = nil, completionHandler: @escaping CompletionHandler) -> URLSessionDataTask {
         let url = urlForGeocodingV1(options)
 
@@ -311,7 +311,7 @@ open class Geocoder: NSObject {
     }
     
     @discardableResult
-    @objc(batchGeocodeWithOptions:uid:completionHandler:)
+    @objc(batchGeocodeV1WithOptions:uid:completionHandler:)
     open func batchGeocodeV1(_ options: GeocodeOptions & BatchGeocodeOptions, uid: String, completionHandler: @escaping BatchCompletionHandler) -> URLSessionDataTask {
         let url = urlForGeocodingV1(options)
 
@@ -984,7 +984,7 @@ open class Geocoder: NSObject {
     }
     
     @discardableResult
-    @objc(geoserviceLatlngToAddressWithOptions:LatLng:completionHandler:)
+    @objc(geoserviceLatlngToAddressV2WithOptions:LatLng:completionHandler:)
     open func geoserviceLatlngToAddressV2(_ options: GeocodeOptions, LatLng: String? = "", completionHandler: @escaping CompletionHandlerGeoLatLngToAddsResult) -> URLSessionDataTask {
         let url = urlForGeoserviceLatlngToAddressV2(options, LatLng: LatLng!)
         let decoder = JSONDecoder()
@@ -1060,7 +1060,7 @@ open class Geocoder: NSObject {
     }
     
     @discardableResult
-    @objc(geoserviceMultiLatlngToAddressWithOptions:LatLng:completionHandler:)
+    @objc(geoserviceMultiLatlngToAddressV2WithOptions:LatLng:completionHandler:)
     open func geoserviceMultiLatlngToAddressV2(_ options: GeocodeOptions, LatLngString: String? = "", completionHandler: @escaping CompletionHandlerGeoLatLngToMultiAddsResult) -> URLSessionDataTask {
         let url = urlForGeoserviceMultiLatlngToAddressV2(options, LatLng: LatLngString!)
         let decoder = JSONDecoder()
@@ -1150,7 +1150,7 @@ open class Geocoder: NSObject {
     }
     
     @discardableResult
-    @objc(geoserviceTextToAddressWithOptions:textSearch:offset:limit:completionHandler:)
+    @objc(geoserviceTextToAddressV2WithOptions:textSearch:offset:limit:completionHandler:)
     open func geoserviceTextToAddressV2(_ options: GeocodeOptions, textSearch: String? = "", offset: String? = "", limit: String? = "", completionHandler: @escaping CompletionHandlerGeoTextToAddsResult) -> URLSessionDataTask {
         let url = urlForGeoserviceTextToAddressV2(options, textSearch: textSearch!, offset: offset!, limit: limit!)
         let decoder = JSONDecoder()
@@ -1243,7 +1243,7 @@ open class Geocoder: NSObject {
     }
     
     @discardableResult
-    @objc(geoserviceSearchAroundWithOptions:LatLng:textSearch:tp:radius:offset:limit:completionHandler:)
+    @objc(geoserviceSearchAroundV2WithOptions:LatLng:textSearch:tp:radius:offset:limit:completionHandler:)
     open func geoserviceSearchAroundV2(_ options: GeocodeOptions, LatLngString: String? = "", textSearch: String? = "", tp: String? = "0", radius:String? = "", offset: String? = "", limit: String? = "",completionHandler: @escaping CompletionHandlerGeoTextToAddsResult) -> URLSessionDataTask {
         let url = urlForGeoserviceSearchAroundV2(options, LatLng: LatLngString!, textSearch: textSearch!, tp: tp!, radius: radius!, offset: offset!, limit: limit!)
         let decoder = JSONDecoder()
@@ -1325,7 +1325,7 @@ open class Geocoder: NSObject {
     }
     
     @discardableResult
-    @objc(adminserviceByPointWithOptions:LatLng:returnType:type:completionHandler:)
+    @objc(adminserviceByPointV2WithOptions:LatLng:returnType:type:completionHandler:)
     open func adminserviceByPointV2(_ options: GeocodeOptions, LatLng: String? = "", returnType: String? = "", type: String? = "", completionHandler: @escaping CompletionHandlerAdminByPoint) -> URLSessionDataTask {
         let url = urlForAdminserviceByPointV2(options, LatLng: LatLng!, returnType: returnType!, type: type!)
         let decoder = JSONDecoder()
@@ -1395,7 +1395,7 @@ open class Geocoder: NSObject {
     }
     
     @discardableResult
-    @objc(adminserviceByCodeWithOptions:LatLng:returnType:type:completionHandler:)
+    @objc(adminserviceByCodeV2WithOptions:LatLng:returnType:type:completionHandler:)
     open func adminserviceByCodeV2(_ options: GeocodeOptions, code: String? = "", returnType: String? = "", type: String? = "",completionHandler: @escaping CompletionHandlerAdminByPoint) -> URLSessionDataTask {
         let url = urlForAdminserviceByCodeV2(options, code: code!, returnType: returnType!, type: type!)
         let decoder = JSONDecoder()
@@ -1466,7 +1466,7 @@ open class Geocoder: NSObject {
     }
     
     @discardableResult
-    @objc(adminserviceByCircleWithOptions:LatLng:radius:returnType:type:completionHandler:)
+    @objc(adminserviceByCircleV2WithOptions:LatLng:radius:returnType:type:completionHandler:)
     open func adminserviceByCircleV2(_ options: GeocodeOptions, LatLng: String? = "", radius: String? = "", returnType: String? = "", type: String? = "", completionHandler: @escaping CompletionHandlerGeoAdminByCircleResult) -> URLSessionDataTask {
         let url = urlForAdminserviceByCircleV2(options, LatLng: LatLng!, radius: radius!, returnType: returnType!, type: type!)
         let decoder = JSONDecoder()
@@ -1536,7 +1536,7 @@ open class Geocoder: NSObject {
     }
     
     @discardableResult
-    @objc(adminserviceByBoundaryWithOptions:LatLng:returnType:type:completionHandler:)
+    @objc(adminserviceByBoundaryV2WithOptions:LatLng:returnType:type:completionHandler:)
     open func adminserviceByBoundaryV2(_ options: GeocodeOptions, LatLng: String? = "", returnType: String? = "", type: String? = "", completionHandler: @escaping CompletionHandlerGeoAdminByCircleResult) -> URLSessionDataTask {
         let url = urlForAdminserviceByBoundaryV2(options, LatLng: LatLng!, returnType: returnType!, type: type!)
         let decoder = JSONDecoder()
